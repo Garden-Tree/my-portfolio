@@ -1,0 +1,23 @@
+[
+    {
+      "id": "project-alpha",
+      "title": "すごいECサイト",
+      "slug": "sugoi-ec-site",
+      "shortDescription": "Next.jsとTypeScriptで構築した高速ECサイト。",
+      "longDescription": "このプロジェクトでは、ユーザー体験を最優先に考え、最新のフロントエンド技術を駆使して、表示速度の高速化と直感的なUIを実現しました。主な機能として、商品検索、カート機能、Stripe連携による決済機能、そしてFirebaseを利用した商品管理システムがあります。",
+      "technologies": ["Next.js", "TypeScript", "Stripe", "Firebase", "React"],
+      "imageUrl": "/images/projects/ec-site-thumbnail.png",
+      "projectUrl": "https://example.com/ec-site",
+      "repositoryUrl": "https://github.com/your-username/ec-site"
+    },
+    {
+      "id": "project-beta",
+      "title": "このポートフォリオサイト",
+      "slug": "my-portfolio",
+      "shortDescription": "JSONでコンテンツを管理するNext.js製のポートフォリオ。",
+      "longDescription": "ご覧いただいているこのポートフォリオサイトです。Next.jsのApp Router、TypeScriptを使用し、コンテンツはJSONファイルで管理しています。Vercelにデプロイし、GitHub ActionsでCI/CDパイプラインを構築する予定です。",
+      "technologies": ["Next.js", "TypeScript", "JSON", "Vercel"],
+      "imageUrl": "/images/projects/portfolio-thumbnail.png",
+      "repositoryUrl": "https://github.com/your-username/my-portfolio-code"
+    }
+  ]
