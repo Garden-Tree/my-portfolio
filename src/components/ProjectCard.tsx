@@ -15,18 +15,6 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       {/* プロジェクト画像 */}
       {project.imageUrl && (
         <div className="relative w-full h-48 sm:h-56">
-          {/* 外部URLの画像を使う場合、next.config.js (または .mjs) に
-            images.remotePatterns の設定が必要になることがあります。
-            例:
-            images: {
-              remotePatterns: [
-                {
-                  protocol: 'https',
-                  hostname: 'images.unsplash.com', // 画像をホストしているドメイン
-                },
-              ],
-            },
-          */}
           <Image
             src={project.imageUrl}
             alt={project.title}

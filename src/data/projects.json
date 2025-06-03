@@ -1,23 +1,22 @@
 [
     {
-      "id": "project-alpha",
-      "title": "すごいECサイト",
-      "slug": "sugoi-ec-site",
-      "shortDescription": "Next.jsとTypeScriptで構築した高速ECサイト。",
-      "longDescription": "このプロジェクトでは、ユーザー体験を最優先に考え、最新のフロントエンド技術を駆使して、表示速度の高速化と直感的なUIを実現しました。主な機能として、商品検索、カート機能、Stripe連携による決済機能、そしてFirebaseを利用した商品管理システムがあります。",
-      "technologies": ["Next.js", "TypeScript", "Stripe", "Firebase", "React"],
-      "imageUrl": "/images/projects/ec-site-thumbnail.png",
-      "projectUrl": "https://example.com/ec-site",
-      "repositoryUrl": "https://github.com/your-username/ec-site"
+      "id": "yomi-KAI",
+      "title": "yomi-KAI",
+      "slug": "yomi-kai",
+      "shortDescription": "Python製のDisscord読み上げボット。",
+      "longDescription": "このプロジェクトは、Disscoddサーバーでの音声読み上げを実現するためのPython製ボットです。音声合成ライブラリを使用して、テキストをリアルタイムで音声に変換し、サーバー内のユーザーに読み上げます。主な機能として、特定のコマンドでの読み上げ開始、停止、辞書機能などがあります。",
+      "technologies": ["Python", "Discord.py", "FFmpeg"],
+      "imageUrl": "https://placehold.co/1200x800/png?text=yomi-KAI",
+      "repositoryUrl": "https://github.com/Garden-Tree/yomi-KAI"
     },
     {
-      "id": "project-beta",
-      "title": "このポートフォリオサイト",
-      "slug": "my-portfolio",
+      "id": "portfolio",
+      "title": "ポートフォリオサイト",
+      "slug": "portfolio",
       "shortDescription": "Next.js製のポートフォリオ。",
       "longDescription": "ご覧いただいているこのポートフォリオサイトです。Next.jsのApp Router、TypeScriptを使用し、コンテンツはJSONファイルで管理しています。Vercelにデプロイし、Tailwind CSSでスタイリングを行っています。プロジェクトのコードはGitHubで公開しています。",
       "technologies": ["Next.js", "TypeScript", "JSON", "Vercel", "Tailwind CSS"],
-      "imageUrl": "/images/projects/portfolio-thumbnail.png",
+      "imageUrl": "https://placehold.co/1200x800/png?text=Portfolio+Site",
       "repositoryUrl": "https://github.com/Garden-Tree/my-portfolio"
     }
   ]

@@ -68,7 +68,9 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
       <section className="mb-10 prose prose-lg dark:prose-invert max-w-none">
         {/* proseクラスを使うとMarkdown風のスタイルが適用される */}
         {/* 必要に応じて prose-headings:text-xl などで調整 */}
-        <h2>About this project</h2>
+        <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-4">
+          About This Project
+        </h2>
         <p className="text-gray-700 dark:text-gray-300">
           {project.longDescription || project.shortDescription}
         </p>
@@ -76,9 +78,9 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
       </section>
 
       <section className="mb-10">
-        <h3 className="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-4">
+        <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-4">
           Technologies Used
-        </h3>
+        </h2>
         <ul className="flex flex-wrap gap-3">
           {project.technologies.map((tech) => (
             <li
@@ -92,9 +94,9 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
       </section>
 
       <section>
-        <h3 className="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-4">
+        <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-4">
           Links
-        </h3>
+        </h2>
         <div className="space-y-3">
           {project.projectUrl && (
             <p>
