@@ -1,15 +1,10 @@
 // components/sections/AboutSection.tsx
 import Image from 'next/image';
 
-interface ProfileData {
-  name: string;
-  bio: string; // JSONのbioをこちらで使用
-  profileImageUrl?: string; // プロフィール画像のパス
-  // 自己紹介で使いたい他のデータ
-}
+import type { Profile } from '@/types';
 
 interface AboutSectionProps {
-  profile: ProfileData;
+  profile: Profile;
 }
 
 export default function AboutSection({ profile }: AboutSectionProps) {

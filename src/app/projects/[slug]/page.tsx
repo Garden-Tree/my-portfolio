@@ -1,35 +1,21 @@
-import projectsData from '@/data/projects.json'; // または '../data/projects.json' など相対パス
+import projectsData from '@/data/projects.json';
 import Link from 'next/link';
-import { notFound } from 'next/navigation'; // プロジェクトが見つからない場合用
-
-// プロジェクトの型定義 (ホームページと同じものを使えます)
-interface Project {
-  id: string;
-  title: string;
-  slug: string;
-  shortDescription: string;
-  longDescription?: string; // 詳細ページではこちらを使います
-  technologies: string[];
-  imageUrl: string;
-  projectUrl?: string;
-  repositoryUrl?: string;
-}
+import Image from 'next/image'; // next/image をインポート
+import { notFound } from 'next/navigation';
+import type { Project } from '@/types'; // 共通の型定義をインポート
 
 interface ProjectDetailPageProps {
   params: {
-    slug: string; // URLの動的セグメント [slug] がここに入ります
+    slug: string;
   };
 }
 
-// (任意) generateStaticParams: ビルド時に静的にパスを生成する場合
-// これにより、各プロジェクトページがビルド時に静的HTMLとして生成されます。
 export async function generateStaticParams() {
   return projectsData.map((project: Project) => ({
     slug: project.slug,
   }));
 }
 
-// (任意) ページのメタデータを動的に生成
 export async function generateMetadata({ params }: ProjectDetailPageProps) {
   const project = projectsData.find((p: Project) => p.slug === params.slug);
   if (!project) {
@@ -39,44 +25,66 @@ export async function generateMetadata({ params }: ProjectDetailPageProps) {
   }
   return {
     title: `${project.title} - Project Details`,
-    description: project.shortDescription, // または longDescription の一部
+    description: project.shortDescription,
   };
 }
 
 export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
   const { slug } = params;
-  const project = projectsData.find((p: Project) => p.slug === slug);
+  // projectsDataをProject型として扱うことを明示
+  const typedProjectsData: Project[] = projectsData;
+  const project = typedProjectsData.find((p) => p.slug === slug);
 
   if (!project) {
-    notFound(); // projects.json に該当する slug がなければ404ページを表示
+    notFound();
   }
 
   return (
-    <div style={{ padding: '2rem', maxWidth: '800px', margin: '0 auto' }}>
-      <header style={{ marginBottom: '2rem', borderBottom: '1px solid #eee', paddingBottom: '1rem' }}>
-        <Link href="/" style={{ color: '#0070f3', textDecoration: 'none', marginBottom: '1rem', display: 'inline-block' }}>
-          &larr; Back to Projects
+    <div className="container mx-auto max-w-3xl px-4 py-8 sm:py-12">
+      <header className="mb-8 pb-6 border-b border-gray-200 dark:border-gray-700">
+        <Link
+          href="/" // 通常はプロジェクト一覧ページ（例: /projects）に戻ることが多いです
+          className="text-blue-600 dark:text-blue-400 hover:underline mb-6 inline-block transition-colors"
+        >
+          &larr; Back to Home
         </Link>
-        <h1>{project.title}</h1>
+        <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          {project.title}
+        </h1>
         {project.imageUrl && (
-          <img
-            src={project.imageUrl} // ここはメイン画像や詳細画像など、一覧とは違う画像でも良い
-            alt={project.title}
-            style={{ width: '100%', maxHeight: '400px', objectFit: 'cover', borderRadius: '8px', marginTop: '1rem' }}
-          />
+          <div className="relative w-full h-64 sm:h-80 md:h-96 rounded-lg overflow-hidden shadow-lg mt-4">
+            <Image
+              src={project.imageUrl}
+              alt={project.title}
+              fill
+              style={{ objectFit: 'cover' }}
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 800px"
+              priority // LCPになる可能性が高いためpriorityを付与
+            />
+          </div>
         )}
       </header>
 
-      <section style={{ marginBottom: '2rem' }}>
+      <section className="mb-10 prose prose-lg dark:prose-invert max-w-none">
+        {/* proseクラスを使うとMarkdown風のスタイルが適用される */}
+        {/* 必要に応じて prose-headings:text-xl などで調整 */}
         <h2>About this project</h2>
-        <p style={{ lineHeight: '1.8' }}>{project.longDescription || project.shortDescription}</p>
+        <p className="text-gray-700 dark:text-gray-300">
+          {project.longDescription || project.shortDescription}
+        </p>
+        {/* もしlongDescriptionがMarkdown形式なら、それをパースして表示するライブラリを使うとよりリッチになります */}
       </section>
 
-      <section style={{ marginBottom: '2rem' }}>
-        <h3>Technologies Used</h3>
-        <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+      <section className="mb-10">
+        <h3 className="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-4">
+          Technologies Used
+        </h3>
+        <ul className="flex flex-wrap gap-3">
           {project.technologies.map((tech) => (
-            <li key={tech} style={{ background: '#444', padding: '0.3rem 0.7rem', borderRadius: '4px', fontSize: '0.9em' }}>
+            <li
+              key={tech}
+              className="bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 px-3 py-1.5 rounded-full text-sm font-medium"
+            >
               {tech}
             </li>
           ))}
@@ -84,22 +92,40 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
       </section>
 
       <section>
-        <h3>Links</h3>
-        {project.projectUrl && (
-          <p>
-            <a href={project.projectUrl} target="_blank" rel="noopener noreferrer" style={{ color: '#0070f3' }}>
-              View Live Project &rarr;
-            </a>
-          </p>
-        )}
-        {project.repositoryUrl && (
-          <p>
-            <a href={project.repositoryUrl} target="_blank" rel="noopener noreferrer" style={{ color: '#0070f3' }}>
-              View Source Code &rarr;
-            </a>
-          </p>
-        )}
-        {!project.projectUrl && !project.repositoryUrl && <p>No external links available for this project.</p>}
+        <h3 className="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-4">
+          Links
+        </h3>
+        <div className="space-y-3">
+          {project.projectUrl && (
+            <p>
+              <a
+                href={project.projectUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-colors"
+              >
+                View Live Project &rarr;
+              </a>
+            </p>
+          )}
+          {project.repositoryUrl && (
+            <p>
+              <a
+                href={project.repositoryUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-colors"
+              >
+                View Source Code &rarr;
+              </a>
+            </p>
+          )}
+          {!project.projectUrl && !project.repositoryUrl && (
+            <p className="text-gray-600 dark:text-gray-400">
+              No external links available for this project.
+            </p>
+          )}
+        </div>
       </section>
     </div>
   );

@@ -1,16 +1,8 @@
-// components/sections/ProjectsSection.tsx
+// src/components/sections/ProjectsSection.tsx
+
 import ProjectCard from '@/components/ProjectCard';
 
-interface Project {
-  id: string;
-  title: string;
-  slug: string; // 詳細ページ用
-  shortDescription: string;
-  technologies: string[];
-  imageUrl: string;
-  projectUrl?: string;
-  repositoryUrl?: string;
-}
+import type { Project } from '@/types';
 
 interface ProjectsSectionProps {
   projects: Project[];

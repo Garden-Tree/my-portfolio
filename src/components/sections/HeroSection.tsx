@@ -1,20 +1,10 @@
 // components/sections/HeroSection.tsx
 import Image from 'next/image'; // プロフィール画像を使う場合
 import Link from 'next/link';   // CTAボタンなどでリンクを使う場合
-
-interface ProfileData {
-  name: string;
-  title: string;
-  heroSubtitle?: string;
-  heroCTA?: {
-    text: string;
-    href: string;
-  };
-  // 他にもヒーローセクションで使いたいデータがあれば追加
-}
+import type { Profile } from '@/types';
 
 interface HeroSectionProps {
-  profile: ProfileData;
+  profile: Profile;
 }
 
 export default function HeroSection({ profile }: HeroSectionProps) {

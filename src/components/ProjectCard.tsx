@@ -1,17 +1,9 @@
+// src/components/ProjectCard.tsx
+
 import Image from 'next/image';
 import Link from 'next/link';
 
-export interface Project {
-  id: string;
-  slug: string; // 詳細ページへのURLに使います
-  title: string;
-  shortDescription: string;
-  imageUrl: string; // publicフォルダからのパス、または外部URL
-  technologies: string[];
-  projectUrl?: string; // 任意: デプロイ先のURL
-  repositoryUrl?: string; // 任意: GitHubなどのリポジトリURL
-  // longDescription?: string; // 詳細ページで使うため、カードでは不要かもしれません
-}
+import type { Project } from '@/types';
 
 interface ProjectCardProps {
   project: Project;

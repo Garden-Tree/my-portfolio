@@ -1,21 +1,17 @@
 // components/sections/SkillsSection.tsx
 
-interface SkillItem {
-  category: string;
-  items: string[];
-}
+import type { SkillGroup } from '@/types';
 
 interface SkillsSectionProps {
-  skills: SkillItem[];
-  title: string;
+  skills: SkillGroup[];
 }
 
-export default function SkillsSection({ skills, title }: SkillsSectionProps) {
+export default function SkillsSection({ skills }: SkillsSectionProps) {
   return (
     <section id="skills" className="py-16 sm:py-24 bg-white dark:bg-gray-900 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto max-w-4xl">
         <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white">
-          {title}
+          My Skills
         </h2>
         <div className="space-y-10">
           {skills.map((skillGroup) => (

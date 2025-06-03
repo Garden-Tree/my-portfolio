@@ -9,8 +9,6 @@ import SkillsSection from '@/components/sections/SkillsSection';
 // データファイルをインポート
 import profileData from '@/data/profile.json';
 import projectsData from '@/data/projects.json';
-// スキルセット用のデータもJSONで管理する場合
-// import skillsData from '@/data/skills.json';
 
 export default function HomePage() {
   return (

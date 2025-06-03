@@ -1,5 +1,19 @@
 {
     "name": "GardenTree",
     "title": "情報系学生",
-    "bio": "情報系の学生で、ソフトウェア開発やIoTに興味があります。趣味はバイクに乗ることです。"
+    "bio": "情報系の学生で、ソフトウェア開発やIoTに興味があります。趣味はバイクに乗ることです。",
+    "skills": [
+        {
+            "category": "Languages",
+            "items": ["TypeScript", "Python", "C++"]
+        },
+        {
+            "category": "Frameworks & Libraries",
+            "items": ["React", "Next.js", "Tailwind CSS"]
+        },
+        {
+            "category": "Tools & Technologies",
+            "items": ["Git", "Docker", "AWS"]
+        }
+    ]
 }

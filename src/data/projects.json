@@ -14,10 +14,10 @@
       "id": "project-beta",
       "title": "このポートフォリオサイト",
       "slug": "my-portfolio",
-      "shortDescription": "JSONでコンテンツを管理するNext.js製のポートフォリオ。",
-      "longDescription": "ご覧いただいているこのポートフォリオサイトです。Next.jsのApp Router、TypeScriptを使用し、コンテンツはJSONファイルで管理しています。Vercelにデプロイし、GitHub ActionsでCI/CDパイプラインを構築する予定です。",
-      "technologies": ["Next.js", "TypeScript", "JSON", "Vercel"],
+      "shortDescription": "Next.js製のポートフォリオ。",
+      "longDescription": "ご覧いただいているこのポートフォリオサイトです。Next.jsのApp Router、TypeScriptを使用し、コンテンツはJSONファイルで管理しています。Vercelにデプロイし、Tailwind CSSでスタイリングを行っています。プロジェクトのコードはGitHubで公開しています。",
+      "technologies": ["Next.js", "TypeScript", "JSON", "Vercel", "Tailwind CSS"],
       "imageUrl": "/images/projects/portfolio-thumbnail.png",
-      "repositoryUrl": "https://github.com/your-username/my-portfolio-code"
+      "repositoryUrl": "https://github.com/Garden-Tree/my-portfolio"
     }
   ]
