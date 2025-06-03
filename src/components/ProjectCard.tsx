@@ -1,0 +1,112 @@
+import Image from 'next/image';
+import Link from 'next/link';
+
+export interface Project {
+  id: string;
+  slug: string; // 詳細ページへのURLに使います
+  title: string;
+  shortDescription: string;
+  imageUrl: string; // publicフォルダからのパス、または外部URL
+  technologies: string[];
+  projectUrl?: string; // 任意: デプロイ先のURL
+  repositoryUrl?: string; // 任意: GitHubなどのリポジトリURL
+  // longDescription?: string; // 詳細ページで使うため、カードでは不要かもしれません
+}
+
+interface ProjectCardProps {
+  project: Project;
+}
+
+export default function ProjectCard({ project }: ProjectCardProps) {
+  return (
+    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 ease-in-out flex flex-col">
+      {/* プロジェクト画像 */}
+      {project.imageUrl && (
+        <div className="relative w-full h-48 sm:h-56">
+          {/* 外部URLの画像を使う場合、next.config.js (または .mjs) に
+            images.remotePatterns の設定が必要になることがあります。
+            例:
+            images: {
+              remotePatterns: [
+                {
+                  protocol: 'https',
+                  hostname: 'images.unsplash.com', // 画像をホストしているドメイン
+                },
+              ],
+            },
+          */}
+          <Image
+            src={project.imageUrl}
+            alt={project.title}
+            fill // 親要素いっぱいに表示
+            style={{ objectFit: 'cover' }} // アスペクト比を保ちつつカバー
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" // レスポンシブな画像読み込みのヒント
+          />
+        </div>
+      )}
+
+      {/* プロジェクト情報 */}
+      <div className="p-5 sm:p-6 flex-grow flex flex-col">
+        <h3 className="text-xl sm:text-2xl font-semibold mb-2 text-gray-900 dark:text-white">
+          {project.title}
+        </h3>
+        <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed mb-4 flex-grow">
+          {project.shortDescription}
+        </p>
+
+        {/* 使用技術 */}
+        {project.technologies && project.technologies.length > 0 && (
+          <div className="mb-4">
+            <h4 className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase mb-1">Technologies Used:</h4>
+            <div className="flex flex-wrap gap-2">
+              {project.technologies.map((tech) => (
+                <span
+                  key={tech}
+                  className="bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 text-xs px-2.5 py-1 rounded-full"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* リンクボタン群 (カード下部に配置されるように mt-auto を使用) */}
+        <div className="mt-auto pt-4 border-t border-gray-200 dark:border-gray-700">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+            <Link
+              href={`/projects/${project.slug}`}
+              className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 px-4 rounded-md text-sm text-center transition-colors duration-200"
+            >
+              View Details
+            </Link>
+            <div className="flex gap-3 justify-center sm:justify-end">
+              {project.projectUrl && (
+                <a
+                  href={project.projectUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300 hover:underline text-sm font-medium"
+                  aria-label={`View live project: ${project.title}`}
+                >
+                  View Project
+                </a>
+              )}
+              {project.repositoryUrl && (
+                <a
+                  href={project.repositoryUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-500 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-300 hover:underline text-sm font-medium"
+                  aria-label={`View source code for ${project.title}`}
+                >
+                  View Code
+                </a>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
