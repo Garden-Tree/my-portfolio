@@ -2,8 +2,7 @@
 
 // Project interface (前回定義したもの)
 export interface Project {
-  id: string;
-  slug: string;
+  slug: string; // IDとしても使用
   title: string;
   shortDescription: string;
   longDescription?: string; // オプショナルなプロパティ

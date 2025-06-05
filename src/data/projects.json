@@ -1,22 +1,65 @@
 [
-    {
-      "id": "yomi-KAI",
-      "title": "yomi-KAI",
-      "slug": "yomi-kai",
-      "shortDescription": "Python製のDisscord読み上げボット。",
-      "longDescription": "このプロジェクトは、Disscoddサーバーでの音声読み上げを実現するためのPython製ボットです。音声合成ライブラリを使用して、テキストをリアルタイムで音声に変換し、サーバー内のユーザーに読み上げます。主な機能として、特定のコマンドでの読み上げ開始、停止、辞書機能などがあります。",
-      "technologies": ["Python", "Discord.py", "FFmpeg"],
-      "imageUrl": "https://placehold.co/1200x800/png?text=yomi-KAI",
-      "repositoryUrl": "https://github.com/Garden-Tree/yomi-KAI"
-    },
-    {
-      "id": "portfolio",
-      "title": "ポートフォリオサイト",
-      "slug": "portfolio",
-      "shortDescription": "Next.js製のポートフォリオ。",
-      "longDescription": "ご覧いただいているこのポートフォリオサイトです。Next.jsのApp Router、TypeScriptを使用し、コンテンツはJSONファイルで管理しています。Vercelにデプロイし、Tailwind CSSでスタイリングを行っています。プロジェクトのコードはGitHubで公開しています。",
-      "technologies": ["Next.js", "TypeScript", "JSON", "Vercel", "Tailwind CSS"],
-      "imageUrl": "https://placehold.co/1200x800/png?text=Portfolio+Site",
-      "repositoryUrl": "https://github.com/Garden-Tree/my-portfolio"
-    }
-  ]
+  {
+    "title": "スマートリモコン (Smart Remote Control)",
+    "slug": "smart-remote-control",
+    "shortDescription": "IoT技術を用いた家電制御システム。スマートフォンや音声で家電を操作可能にしました。",
+    "longDescription": "IoT技術を用いた家電制御システム。スマートフォンや音声で家電を操作可能にしました。",
+    "technologies": ["Arduino", "C++", "センサー技術", "赤外線", "Python"],
+    "imageUrl": "https://placehold.co/1200x800/png?text=Smart+Remote+Control",
+    "repositoryUrl": "https://github.com/Garden-Tree/smart-remote-control"
+  },
+  {
+    "title": "スマートゴミ箱 (Smart Trash Can)",
+    "slug": "smart-trash-can",
+    "shortDescription": "IoT技術を活用し、ゴミの量を検知して収集タイミングを通知するシステムを試作しました。",
+    "longDescription": "IoT技術を活用し、ゴミの量を検知して収集タイミングを通知するシステムを試作しました。",
+    "technologies": ["Arduino", "C++", "センサー技術", "Python"],
+    "imageUrl": "https://placehold.co/1200x800/png?text=Smart+Trash+Can",
+    "repositoryUrl": "https://github.com/Garden-Tree/smart-trash-can"
+  },
+  {
+    "title": "ロボコン参加プロジェクト (Robocon Participation Project)",
+    "slug": "robocon-participation-project",
+    "shortDescription": "Arduinoをベースとした自律型ロボットを設計・製作し、ロボットコンテストに参加しました。",
+    "longDescription": "Arduinoをベースとした自律型ロボットを設計・製作し、ロボットコンテストに参加しました。",
+    "technologies": ["Arduino", "C++", "モーター制御"],
+    "imageUrl": "https://placehold.co/1200x800/png?text=Robocon+Project",
+    "repositoryUrl": "https://github.com/Garden-Tree/robocon-project"
+  },
+  {
+    "title": "スクールバス運行最適化提案 (School Bus Timetable Optimization Proposal)",
+    "slug": "school-bus-timetable-optimization-proposal",
+    "shortDescription": "過去の運行データと乗降データを分析し、機械学習を用いて効率的なスクールバスのダイヤを提案しました。",
+    "longDescription": "過去の運行データと乗降データを分析し、機械学習を用いて効率的なスクールバスのダイヤを提案しました。",
+    "technologies": ["Python", "Pandas", "Scikit-learn", "NumPy", "Matplotlib"],
+    "imageUrl": "https://placehold.co/1200x800/png?text=School+Bus+Optimization",
+    "repositoryUrl": "https://github.com/Garden-Tree/school-bus-optimization"
+  },
+  {
+    "title": "Discord読み上げBot (Discord Text-to-Speech Bot)",
+    "slug": "discord-text-to-speech-bot",
+    "shortDescription": "Discordサーバー上のテキストチャットを指定した音声で読み上げるBotを開発・運用しました。",
+    "longDescription": "Discordサーバー上のテキストチャットを指定した音声で読み上げるBotを開発・運用しました。",
+    "technologies": ["Python", "discord.py", "各種TTS API"],
+    "imageUrl": "https://placehold.co/1200x800/png?text=Discord+TTS+Bot",
+    "repositoryUrl": "https://github.com/Garden-Tree/discord-tts-bot"
+  },
+  {
+    "title": "自宅学習サーバー (Home Lab Server)",
+    "slug": "home-lab-server",
+    "shortDescription": "仮想化技術(Docker)を活用し、Webアプリケーション開発、データベース、ネットワーク学習などのための多目的自宅サーバーを構築・運用しています。",
+    "longDescription": "仮想化技術(Docker)を活用し、Webアプリケーション開発、データベース、ネットワーク学習などのための多目的自宅サーバーを構築・運用しています。",
+    "technologies": ["Linux (Ubuntu Server)", "Docker", "Nginx", "Git", "DNS設定"],
+    "imageUrl": "https://placehold.co/1200x800/png?text=Home+Lab+Server",
+    "repositoryUrl": "https://github.com/Garden-Tree/home-lab-server"
+  },
+  {
+    "title": "航空機情報ADS-Bフィーダー (Aircraft ADS-B Feeder)",
+    "slug": "aircraft-ads-b-feeder",
+    "shortDescription": "SDR受信機を用いて近隣を飛行する航空機のADS-B信号を受信し、Flightradar24などの共有サイトへデータをフィードするシステムを構築しました。",
+    "longDescription": "SDR受信機を用いて近隣を飛行する航空機のADS-B信号を受信し、Flightradar24などの共有サイトへデータをフィードするシステムを構築しました。",
+    "technologies": ["Raspberry Pi", "SDR (Software Defined Radio)", "dump1090", "Python", "シェルスクリプト"],
+    "imageUrl": "https://placehold.co/1200x800/png?text=ADS-B+Feeder",
+    "repositoryUrl": "https://github.com/Garden-Tree/ads-b-feeder"
+  }
+]
