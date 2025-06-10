@@ -1,19 +1,39 @@
 {
-    "name": "GardenTree",
-    "title": "情報系学生",
-    "bio": "情報系の学生で、ソフトウェア開発やIoTに興味があります。趣味はバイクに乗ることです。",
-    "skills": [
-        {
-            "category": "Languages",
-            "items": ["TypeScript", "Python", "C++"]
-        },
-        {
-            "category": "Frameworks & Libraries",
-            "items": ["React", "Next.js", "Tailwind CSS"]
-        },
-        {
-            "category": "Tools & Technologies",
-            "items": ["Git", "Docker", "AWS"]
-        }
-    ]
+  "name": "GardenTree",
+  "title": "情報系学生",
+  "bio": "バイクという趣味と情報技術を掛け合わせ、新たな乗車体験を創造することに情熱を注いでいます。現在は卒業研究として、ライダーの視界にナビゲーションや車両情報を投影する**バイク用ヘッドマウントディスプレイ（HMD）**の開発に取り組んでいます。この研究では、ハードウェア制御からWeb技術（React/FastAPI）を用いたデータ連携まで、これまで学んだ知識を総動員しています。また、サークルでは部長としてチームを率いた経験から、多様な仲間と協力して一つの目標を達成することにやりがいを感じます。これらの経験を活かし、将来的にはユーザーの課題に深く寄り添い、技術で新たな価値と体験を創造できるエンジニアになることを目指しています。",
+  "skills": [
+    {
+      "category": "Frontend",
+      "items": ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Next.js", "Tailwind CSS"]
+    },
+    {
+      "category": "Backend",
+      "items": ["Python", "FastAPI", "Flask", "Java", "Node.js", "C++", "C", "Shell Script"]
+    },
+    {
+      "category": "Mobile",
+      "items": ["Flutter", "Dart"]
+    },
+    {
+      "category": "Game Development",
+      "items": ["Unity", "C#"]
+    },
+    {
+      "category": "Machine Learning / Data Science",
+      "items": ["Scikit-learn", "Pandas", "NumPy", "matplotlib", "R"]
+    },
+    {
+      "category": "Hardware",
+      "items": ["Arduino", "Raspberry Pi", "Node-RED", "SDR"]
+    },
+    {
+      "category": "Database",
+      "items": ["PostgreSQL", "MongoDB"]
+    },
+    {
+      "category": "Infrastructure & DevOps",
+      "items": ["AWS (Lambda, S3)", "Linux", "Git", "Docker", "GitHub Actions"]
+    }
+  ]
 }
