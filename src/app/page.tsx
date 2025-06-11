@@ -17,7 +17,6 @@ export default function HomePage() {
       <HeroSection profile={profileData} />
       <AboutSection profile={profileData} />
       <ProjectsSection projects={projectsData} />
-      {/* スキルデータはprofileDataに含めても、別ファイルでもOK */}
       <SkillsSection skills={profileData.skills } />
     </>
   );

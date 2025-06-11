@@ -1,7 +1,12 @@
 {
   "name": "GardenTree",
-  "title": "情報系学生",
-  "bio": "バイクという趣味と情報技術を掛け合わせ、新たな乗車体験を創造することに情熱を注いでいます。現在は卒業研究として、ライダーの視界にナビゲーションや車両情報を投影する**バイク用ヘッドマウントディスプレイ（HMD）**の開発に取り組んでいます。この研究では、ハードウェア制御からWeb技術（React/FastAPI）を用いたデータ連携まで、これまで学んだ知識を総動員しています。また、サークルでは部長としてチームを率いた経験から、多様な仲間と協力して一つの目標を達成することにやりがいを感じます。これらの経験を活かし、将来的にはユーザーの課題に深く寄り添い、技術で新たな価値と体験を創造できるエンジニアになることを目指しています。",
+  "title": "一人でも、チームでも。\nハードウェアからクラウドまで、\nアイデアを形にする。",
+  "bio": "趣味のバイクから着想を得たHMDの研究や、日常の不便を解決するためのIoTデバイス開発、サーバー構築など、多くの「ものづくり」に一人で向き合う探求心を深めてきました。一方で、より大きな目標を達成するにはチームの力が必要不可欠なことも知っています。ゲーム制作サークルでは部長として多様な仲間を率い、チームで成し遂げる推進力を培いました。これからも、この個人の探求心とチームの推進力を掛け合わせ、ハードウェアからクラウドまで、あらゆる課題解決に貢献していきます。",
+  "heroCTA": {
+    "text": "GitHub",
+    "href": "https://github.com/Garden-Tree"
+  },
+  "profileImageUrl": "https://placehold.co/1200x800/png?text=GardenTree",
   "skills": [
     {
       "category": "Frontend",
@@ -10,10 +15,6 @@
     {
       "category": "Backend",
       "items": ["Python", "FastAPI", "Flask", "Java", "Node.js", "C++", "C", "Shell Script"]
-    },
-    {
-      "category": "Mobile",
-      "items": ["Flutter", "Dart"]
     },
     {
       "category": "Game Development",
@@ -29,11 +30,11 @@
     },
     {
       "category": "Database",
-      "items": ["PostgreSQL", "MongoDB"]
+      "items": ["SQL", "PostgreSQL", "MongoDB"]
     },
     {
       "category": "Infrastructure & DevOps",
-      "items": ["AWS (Lambda, S3)", "Linux", "Git", "Docker", "GitHub Actions"]
+      "items": ["AWS (Lambda, S3)",  "Docker", "Linux", "Git", "GitHub", "GitHub Actions"]
     }
   ]
 }

@@ -1,6 +1,6 @@
 // src/types/index.ts
 
-// Project interface (前回定義したもの)
+// Project interface
 export interface Project {
   slug: string; // IDとしても使用
   title: string;
@@ -12,7 +12,7 @@ export interface Project {
   repositoryUrl?: string;
 }
 
-// Profile 内で使われる型 (必要に応じて定義)
+// Profile 内で使われる型
 export interface CTAButton {
   text: string;
   href: string;
@@ -24,13 +24,13 @@ export interface SkillGroup {
 }
 
 
-// Profile interface (新規追加)
+// Profile interface
 export interface Profile {
   name: string;
   title: string;
   bio: string;
   heroSubtitle?: string;       // ? はオプショナル（任意）なプロパティ
-  heroCTA?: CTAButton;
+  heroCTA?: CTAButton[];
   profileImageUrl?: string;
   skills?: SkillGroup[];       // スキル情報も Profile に含める場合
   // 他にもプロフィール関連のデータがあればここに追加
