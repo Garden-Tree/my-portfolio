@@ -1,10 +1,10 @@
 // app/page.tsx や pages/index.tsx などのホームページ用ファイル
 
 // 各セクションコンポーネントをインポート (パスは適宜調整してください)
-import HeroSection from '@/components/sections/HeroSection';
-import AboutSection from '@/components/sections/AboutSection';
-import ProjectsSection from '@/components/sections/ProjectsSection';
-import SkillsSection from '@/components/sections/SkillsSection';
+import HeroSection from '@/components/sections/1HeroSection';
+import AboutSection from '@/components/sections/2AboutSection';
+import ProjectsSection from '@/components/sections/3ProjectsSection';
+import SkillsSection from '@/components/sections/4SkillsSection';
 
 // データファイルをインポート
 import profileData from '@/data/profile.json';
@@ -17,7 +17,7 @@ export default function HomePage() {
       <HeroSection profile={profileData} />
       <AboutSection profile={profileData} />
       <ProjectsSection projects={projectsData} />
-      <SkillsSection skills={profileData.skills } />
+      <SkillsSection skills={profileData.skills} />
     </>
   );
 }

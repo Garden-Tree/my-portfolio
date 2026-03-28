@@ -30,7 +30,7 @@ export interface Profile {
   title: string;
   bio: string;
   heroSubtitle?: string;       // ? はオプショナル（任意）なプロパティ
-  heroCTA?: CTAButton[];
+  heroCTA?: CTAButton;
   profileImageUrl?: string;
   skills?: SkillGroup[];       // スキル情報も Profile に含める場合
   // 他にもプロフィール関連のデータがあればここに追加
