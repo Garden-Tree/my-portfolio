@@ -11,17 +11,20 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 ease-in-out flex flex-col">
+    <div className="group bg-white dark:bg-[#0a0a0a] border border-gray-100 dark:border-gray-800 rounded-xl overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-500 ease-out flex flex-col">
       {/* プロジェクト画像 */}
       {project.imageUrl && (
-        <div className="relative w-full h-48 sm:h-56">
+        <div className="relative w-full h-48 sm:h-56 overflow-hidden">
           <Image
             src={project.imageUrl}
             alt={project.title}
             fill // 親要素いっぱいに表示
             style={{ objectFit: 'cover' }} // アスペクト比を保ちつつカバー
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" // レスポンシブな画像読み込みのヒント
+            className="group-hover:scale-[1.03] transition-transform duration-700 ease-in-out"
           />
+          {/* subtle overlay to make standard placeholders look better */}
+          <div className="absolute inset-0 bg-gray-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         </div>
       )}
 
@@ -56,7 +59,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
             <Link
               href={`/projects/${project.slug}`}
-              className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 px-4 rounded-md text-sm text-center transition-colors duration-200"
+              className="w-full sm:w-auto bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 hover:bg-gray-800 dark:hover:bg-white font-medium py-2 px-5 rounded-md text-sm text-center transition-colors duration-200"
             >
               View Details
             </Link>

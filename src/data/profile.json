@@ -6,7 +6,7 @@
     "text": "GitHub",
     "href": "https://github.com/Garden-Tree"
   },
-  "profileImageUrl": "https://placehold.co/1200x800/png?text=GardenTree",
+  "profileImageUrl": "/images/profile.png",
   "skills": [
     {
       "category": "Frontend",
