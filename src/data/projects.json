@@ -151,5 +151,21 @@
     ],
     "imageUrl": "https://placehold.co/1200x800/png?text=Hardware+Tinkering+and+Maintenance",
     "repositoryUrl": "https://github.com/Garden-Tree/hardware-tinkering-and-maintenance"
+  },
+  {
+    "title": "過去問共有サイト",
+    "slug": "past-exam-sharing-site",
+    "shortDescription": "大学の過去問を共有するためのサイトを開発しました。",
+    "longDescription": "これまで個人間でやり取りしていた過去問を、より多くの学生が効率的に利用できるようにするために開発しました。",
+    "technologies": [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "PostgreSQL",
+      "Supabase",
+      "Vercel"
+    ],
+    "imageUrl": "https://placehold.co/1200x800/png?text=Past+Exam+Sharing+Site",
+    "repositoryUrl": "https://github.com/Garden-Tree/past-exam-sharing-site"
   }
 ]
