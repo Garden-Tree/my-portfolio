@@ -7,9 +7,10 @@ import type { Project } from '@/types';
 
 interface ProjectCardProps {
   project: Project;
+  priority?: boolean;
 }
 
-export default function ProjectCard({ project }: ProjectCardProps) {
+export default function ProjectCard({ project, priority = false }: ProjectCardProps) {
   return (
     <div className="group bg-white dark:bg-[#0a0a0a] border border-gray-100 dark:border-gray-800 rounded-xl overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-500 ease-out flex flex-col">
       {/* プロジェクト画像 */}
@@ -22,6 +23,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             style={{ objectFit: 'cover' }} // アスペクト比を保ちつつカバー
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" // レスポンシブな画像読み込みのヒント
             className="group-hover:scale-[1.03] transition-transform duration-700 ease-in-out"
+            priority={priority}
           />
           {/* subtle overlay to make standard placeholders look better */}
           <div className="absolute inset-0 bg-gray-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

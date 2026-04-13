@@ -22,8 +22,8 @@ export default function GitHubLink({ href, size = 24, className = '' }: GitHubLi
         alt="GitHub Icon"
         width={size}
         height={size}
-        // もしダークモードで画像の見た目を変えたい場合、
-        // 2つの画像を用意して切り替えるか、CSSの filter を使います
+        style={{ width: 'auto', height: 'auto' }}
+        className={`invert dark:invert-0`}
       />
     </a>
   );

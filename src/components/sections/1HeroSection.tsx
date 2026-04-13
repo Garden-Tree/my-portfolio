@@ -1,6 +1,3 @@
-// components/sections/HeroSection.tsx
-import Image from 'next/image'; // プロフィール画像を使う場合
-import Link from 'next/link';   // CTAボタンなどでリンクを使う場合
 import type { Profile } from '@/types';
 import InteractiveBackground from '@/components/InteractiveBackground';
 

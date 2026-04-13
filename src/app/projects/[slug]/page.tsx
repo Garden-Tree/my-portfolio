@@ -5,9 +5,9 @@ import { notFound } from 'next/navigation';
 import type { Project } from '@/types'; // 共通の型定義をインポート
 
 interface ProjectDetailPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export async function generateStaticParams() {
@@ -17,7 +17,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: ProjectDetailPageProps) {
-  const project = projectsData.find((p: Project) => p.slug === params.slug);
+  const resolvedParams = await params;
+  const project = projectsData.find((p: Project) => p.slug === resolvedParams.slug);
   if (!project) {
     return {
       title: 'Project Not Found',
@@ -29,8 +30,9 @@ export async function generateMetadata({ params }: ProjectDetailPageProps) {
   };
 }
 
-export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
-  const { slug } = params;
+export default async function ProjectDetailPage({ params }: ProjectDetailPageProps) {
+  const resolvedParams = await params;
+  const { slug } = resolvedParams;
   // projectsDataをProject型として扱うことを明示
   const typedProjectsData: Project[] = projectsData;
   const project = typedProjectsData.find((p) => p.slug === slug);
