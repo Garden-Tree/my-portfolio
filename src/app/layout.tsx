@@ -28,6 +28,11 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         suppressHydrationWarning
       >
+        {/* Development Status Badge */}
+        <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 bg-yellow-100/10 dark:bg-yellow-900/40 border border-yellow-500/30 text-yellow-600 dark:text-yellow-400 px-4 py-2 rounded-full text-xs sm:text-sm font-medium backdrop-blur-md shadow-lg flex items-center gap-2 pointer-events-none select-none">
+          <span aria-hidden="true">🚧</span>
+          <span>このサイトは現在開発中です</span>
+        </div>
         {children}
       </body>
     </html>
