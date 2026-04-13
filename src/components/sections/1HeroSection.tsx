@@ -16,10 +16,8 @@ export default function HeroSection({ profile }: HeroSectionProps) {
         <h1 className="text-5xl sm:text-7xl md:text-8xl font-black mb-6 tracking-tighter text-white">
           {profile.name}<span className="text-blue-400"></span>
         </h1>
-        <p className="text-lg sm:text-xl md:text-2xl font-light leading-relaxed mb-8 text-blue-50 animate-fade-up-delay-1 tracking-wide">
-          {profile.title.split('\n').map((line, i) => (
-            <span key={i}>{line}<br /></span>
-          ))}
+        <p className="text-lg sm:text-xl md:text-2xl font-light leading-relaxed mb-8 text-blue-50 animate-fade-up-delay-1 tracking-wide whitespace-pre-wrap">
+          {profile.title}
         </p>
       </div>
     </section>

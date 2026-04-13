@@ -33,6 +33,7 @@ export interface Profile {
   heroCTA?: CTAButton;
   profileImageUrl?: string;
   skills?: SkillGroup[];
+  certifications?: string[];
 }
 
 // タイムラインイベント型
@@ -40,4 +41,12 @@ export interface TimelineEvent {
   year: number;
   title: string;
   description?: string;
+}
+
+// アクティビティ（リーダーシップ等）型
+export interface Activity {
+  title: string;
+  role: string;
+  description: string;
+  imageUrl: string;
 }

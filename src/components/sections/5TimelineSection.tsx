@@ -1,4 +1,4 @@
-import timelineData from '@/data/timeline.json';
+import timelineData from '@/data/timeline';
 import type { TimelineEvent } from '@/types';
 
 export default function TimelineSection() {
@@ -28,7 +28,7 @@ export default function TimelineSection() {
               </div>
               
               {event.description && (
-                <p className="text-gray-700 dark:text-gray-300 leading-relaxed max-w-2xl mt-2 font-light">
+                <p className="text-gray-700 dark:text-gray-300 leading-relaxed max-w-2xl mt-2 font-light whitespace-pre-wrap">
                   {event.description}
                 </p>
               )}

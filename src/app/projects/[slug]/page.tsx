@@ -1,5 +1,5 @@
-import projectsData from '@/data/projects.json';
-import Link from 'next/link';
+import projectsData from '@/data/projects';
+import BackButton from '@/components/BackButton';
 import Image from 'next/image'; // next/image をインポート
 import { notFound } from 'next/navigation';
 import type { Project } from '@/types'; // 共通の型定義をインポート
@@ -42,14 +42,9 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
   }
 
   return (
-    <div className="container mx-auto max-w-3xl px-4 py-8 sm:py-12">
+    <div className="container mx-auto max-w-3xl px-4 pt-24 pb-8 sm:pb-12 animate-fade-up">
       <header className="mb-8 pb-6 border-b border-gray-200 dark:border-gray-700">
-        <Link
-          href="/" // 通常はプロジェクト一覧ページ（例: /projects）に戻ることが多いです
-          className="text-blue-600 dark:text-blue-400 hover:underline mb-6 inline-block transition-colors"
-        >
-          &larr; Back to Home
-        </Link>
+        <BackButton />
         <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
           {project.title}
         </h1>
@@ -73,10 +68,10 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
         <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-4">
           About This Project
         </h2>
-        <p className="text-gray-700 dark:text-gray-300">
+        <p className="text-gray-700 dark:text-gray-300 whitespace-pre-wrap">
           {project.longDescription || project.shortDescription}
         </p>
-        {/* もしlongDescriptionがMarkdown形式なら、それをパースして表示するライブラリを使うとよりリッチになります */}
+        {/* \n が自然と改行として表示されるようになりました */}
       </section>
 
       <section className="mb-10">

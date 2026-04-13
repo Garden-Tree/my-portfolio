@@ -1,13 +1,31 @@
+'use client';
+
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
+  const pathname = usePathname();
   const navItems = [
     { name: 'Home', href: '/#hero' },
     { name: 'About', href: '/#about' },
     { name: 'Timeline', href: '/#timeline' },
     { name: 'Projects', href: '/#projects' },
+    { name: 'Leadership', href: '/#leadership' },
     { name: 'Skills', href: '/#skills' },
   ];
+
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    // もし現在トップページ(/)にいて、かつリンクがアンカーリンク(#)なら、JSでスムーズスクロール
+    if (pathname === '/' && href.startsWith('/#')) {
+      e.preventDefault();
+      const targetId = href.replace('/#', '');
+      const element = document.getElementById(targetId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+        window.history.pushState(null, '', href);
+      }
+    }
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-[100] bg-white/80 dark:bg-[#0a0a0a]/80 backdrop-blur-md border-b border-gray-200/50 dark:border-gray-800/50 shadow-sm">
@@ -24,6 +42,7 @@ export default function Navbar() {
                 <Link
                   key={item.name}
                   href={item.href}
+                  onClick={(e) => handleScroll(e, item.href)}
                   className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors"
                 >
                   {item.name}
@@ -38,6 +57,7 @@ export default function Navbar() {
                 <Link
                   key={item.name}
                   href={item.href}
+                  onClick={(e) => handleScroll(e, item.href)}
                   className="text-xs font-medium text-gray-600 dark:text-gray-300 hover:text-blue-500"
                 >
                   {item.name}

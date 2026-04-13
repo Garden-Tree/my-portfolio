@@ -12,7 +12,10 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ project, priority = false }: ProjectCardProps) {
   return (
-    <div className="group bg-white dark:bg-[#0a0a0a] border border-gray-100 dark:border-gray-800 rounded-xl overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-500 ease-out flex flex-col">
+    <Link
+      href={`/projects/${project.slug}`}
+      className="group bg-white dark:bg-[#0a0a0a] border border-gray-100 dark:border-gray-800 rounded-xl overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-500 ease-out flex flex-col"
+    >
       {/* プロジェクト画像 */}
       {project.imageUrl && (
         <div className="relative w-full h-48 sm:h-56 overflow-hidden">
@@ -56,42 +59,13 @@ export default function ProjectCard({ project, priority = false }: ProjectCardPr
           </div>
         )}
 
-        {/* リンクボタン群 (カード下部に配置されるように mt-auto を使用) */}
-        <div className="mt-auto pt-4 border-t border-gray-200 dark:border-gray-700">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-            <Link
-              href={`/projects/${project.slug}`}
-              className="w-full sm:w-auto bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 hover:bg-gray-800 dark:hover:bg-white font-medium py-2 px-5 rounded-md text-sm text-center transition-colors duration-200"
-            >
-              View Details
-            </Link>
-            <div className="flex gap-3 justify-center sm:justify-end">
-              {project.projectUrl && (
-                <a
-                  href={project.projectUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300 hover:underline text-sm font-medium"
-                  aria-label={`View live project: ${project.title}`}
-                >
-                  View Project
-                </a>
-              )}
-              {project.repositoryUrl && (
-                <a
-                  href={project.repositoryUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-500 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-300 hover:underline text-sm font-medium"
-                  aria-label={`View source code for ${project.title}`}
-                >
-                  View Code
-                </a>
-              )}
-            </div>
-          </div>
+        <div className="mt-auto flex justify-end items-end text-gray-400 dark:text-gray-500 group-hover:text-blue-500 transition-colors duration-300 pt-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300">
+            <line x1="7" y1="17" x2="17" y2="7"></line>
+            <polyline points="7 7 17 7 17 17"></polyline>
+          </svg>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
