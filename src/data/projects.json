@@ -69,7 +69,7 @@
       "Dockerデプロイ"
     ],
     "imageUrl": "https://placehold.co/1200x800/png?text=Discord+TTS+Bot+Development",
-    "repositoryUrl": "https://github.com/Garden-Tree/discord-tts-bot-development"
+    "repositoryUrl": "https://github.com/Garden-Tree/yomi-KAI"
   },
   {
     "title": "AIを活用した燃費管理アプリケーションの開発",
@@ -83,7 +83,7 @@
       "Python"
     ],
     "imageUrl": "https://placehold.co/1200x800/png?text=AI+Fuel+Efficiency+App",
-    "repositoryUrl": "https://github.com/Garden-Tree/ai-fuel-efficiency-app"
+    "repositoryUrl": "https://github.com/Garden-Tree/fuel-lens"
   },
   {
     "title": "スマートゴミ箱 & スマートリモコン (IoT Device)",
@@ -166,6 +166,6 @@
       "Vercel"
     ],
     "imageUrl": "https://placehold.co/1200x800/png?text=Past+Exam+Sharing+Site",
-    "repositoryUrl": "https://github.com/Garden-Tree/past-exam-sharing-site"
+    "repositoryUrl": "https://github.com/Garden-Tree/chodai-kakomon-hub"
   }
 ]
