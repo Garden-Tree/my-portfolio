@@ -19,11 +19,11 @@ const profile: Profile = {
   skills: [
     {
       category: "Frontend",
-      items: ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Next.js", "Tailwind CSS"]
+      items: ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Next.js", "Tailwind CSS", "Clerk"]
     },
     {
       category: "Backend",
-      items: ["Python", "FastAPI", "Flask", "Java", "Node.js", "C++", "C", "Shell Script"]
+      items: ["Python", "FastAPI", "Flask", "Java", "Node.js", "C++", "C", "Shell Script", "discord.py", "WebSocket"]
     },
     {
       category: "Game Development",
@@ -39,11 +39,11 @@ const profile: Profile = {
     },
     {
       category: "Database",
-      items: ["SQL", "PostgreSQL", "MongoDB"]
+      items: ["SQL", "PostgreSQL", "Supabase"]
     },
     {
       category: "Infrastructure & DevOps",
-      items: ["Proxmox VE", "Tailscale", "Docker", "Linux", "Git", "GitHub", "GitHub Actions"]
+      items: ["Proxmox VE", "Tailscale", "Docker", "Linux", "Git", "GitHub", "GitHub Actions", "Vercel"]
     }
   ],
   certifications: [
