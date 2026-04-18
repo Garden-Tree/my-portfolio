@@ -65,8 +65,8 @@ export default function InteractiveBackground() {
         if (!ctx) return;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        // 青いパーティクル
-        ctx.fillStyle = "rgba(100, 150, 255, 0.4)";
+        // 琥珀色のパーティクル
+        ctx.fillStyle = "rgba(251, 191, 36, 0.4)"; // amber-400
         ctx.fill();
       }
     }
@@ -93,7 +93,7 @@ export default function InteractiveBackground() {
 
           if (distance < 120) {
             ctx!.beginPath();
-            ctx!.strokeStyle = `rgba(100, 150, 255, ${(1 - distance / 120) * 0.3})`;
+            ctx!.strokeStyle = `rgba(251, 191, 36, ${(1 - distance / 120) * 0.3})`;
             ctx!.lineWidth = 1;
             ctx!.moveTo(particles[i].x, particles[i].y);
             ctx!.lineTo(particles[j].x, particles[j].y);
@@ -107,7 +107,7 @@ export default function InteractiveBackground() {
         const distanceMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
         if (distanceMouse < 180) {
             ctx!.beginPath();
-            ctx!.strokeStyle = `rgba(150, 200, 255, ${(1 - distanceMouse / 180) * 0.8})`;
+            ctx!.strokeStyle = `rgba(253, 230, 138, ${(1 - distanceMouse / 180) * 0.8})`; // amber-200
             ctx!.lineWidth = 1.5;
             ctx!.moveTo(particles[i].x, particles[i].y);
             ctx!.lineTo(mouse.x, mouse.y);
@@ -138,9 +138,9 @@ export default function InteractiveBackground() {
   }, []);
 
   return (
-    <div className="absolute inset-0 -z-10 bg-slate-950 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-slate-900/80 pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-indigo-900/20 via-slate-950/80 to-slate-950 pointer-events-none" />
+    <div className="absolute inset-0 -z-10 bg-zinc-950 overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-zinc-900/80 pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-amber-900/10 via-zinc-950/80 to-zinc-950 pointer-events-none" />
       
       <canvas
         ref={canvasRef}
