@@ -10,9 +10,9 @@ interface ProjectsSectionProps {
 
 export default function ProjectsSection({ projects }: ProjectsSectionProps) {
   return (
-    <section id="projects" className="py-16 sm:py-24 bg-gray-50 dark:bg-gray-800 px-4 sm:px-6 lg:px-8">
+    <section id="projects" className="py-24 sm:py-32 bg-zinc-950 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto">
-        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white">
+        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-16 text-zinc-100 tracking-tight">
           My Projects
         </h2>
         {projects.length > 0 ? (
@@ -22,7 +22,7 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
             ))}
           </div>
         ) : (
-          <p className="text-center text-gray-600 dark:text-gray-400">No projects to display yet.</p>
+          <p className="text-center text-zinc-400">No projects to display yet.</p>
         )}
       </div>
     </section>

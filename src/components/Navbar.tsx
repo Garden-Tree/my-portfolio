@@ -28,11 +28,11 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-[100] bg-white/80 dark:bg-[#0a0a0a]/80 backdrop-blur-md border-b border-gray-200/50 dark:border-gray-800/50 shadow-sm">
+    <nav className="fixed top-0 left-0 right-0 z-[100] bg-zinc-950/80 backdrop-blur-md border-b border-zinc-800/50 shadow-sm">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
-            <Link href="/#hero" className="text-xl font-bold text-gray-900 dark:text-white tracking-tighter hover:opacity-80 transition-opacity">
+            <Link href="/#hero" className="text-xl font-bold text-zinc-100 tracking-tighter hover:text-zinc-300 transition-colors">
               GardenTree
             </Link>
           </div>
@@ -43,7 +43,7 @@ export default function Navbar() {
                   key={item.name}
                   href={item.href}
                   onClick={(e) => handleScroll(e, item.href)}
-                  className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                  className="text-zinc-400 hover:text-amber-400 px-3 py-2 rounded-md text-sm font-medium transition-colors"
                 >
                   {item.name}
                 </Link>
@@ -58,7 +58,7 @@ export default function Navbar() {
                   key={item.name}
                   href={item.href}
                   onClick={(e) => handleScroll(e, item.href)}
-                  className="text-xs font-medium text-gray-600 dark:text-gray-300 hover:text-blue-500"
+                  className="text-xs font-medium text-zinc-400 hover:text-amber-400"
                 >
                   {item.name}
                 </Link>

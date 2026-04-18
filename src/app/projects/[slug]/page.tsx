@@ -43,9 +43,9 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
 
   return (
     <div className="container mx-auto max-w-3xl px-4 pt-24 pb-8 sm:pb-12 animate-fade-up">
-      <header className="mb-8 pb-6 border-b border-gray-200 dark:border-gray-700">
+      <header className="mb-8 pb-6 border-b border-zinc-800">
         <BackButton />
-        <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+        <h1 className="text-3xl sm:text-4xl font-bold text-zinc-100 mb-4">
           {project.title}
         </h1>
         {project.imageUrl && (
@@ -62,27 +62,27 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
         )}
       </header>
 
-      <section className="mb-10 prose prose-lg dark:prose-invert max-w-none">
+      <section className="mb-10 max-w-none">
         {/* proseクラスを使うとMarkdown風のスタイルが適用される */}
         {/* 必要に応じて prose-headings:text-xl などで調整 */}
-        <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-4">
+        <h2 className="text-2xl font-semibold text-zinc-100 mb-4">
           About This Project
         </h2>
-        <p className="text-gray-700 dark:text-gray-300 whitespace-pre-wrap">
+        <p className="text-zinc-300 whitespace-pre-wrap leading-relaxed">
           {project.longDescription || project.shortDescription}
         </p>
         {/* \n が自然と改行として表示されるようになりました */}
       </section>
 
       <section className="mb-10">
-        <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-4">
+        <h2 className="text-2xl font-semibold text-zinc-100 mb-4">
           Technologies Used
         </h2>
         <ul className="flex flex-wrap gap-3">
           {project.technologies.map((tech) => (
             <li
               key={tech}
-              className="bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 px-3 py-1.5 rounded-full text-sm font-medium"
+              className="bg-zinc-950 border border-zinc-800 text-zinc-300 px-3 py-1.5 rounded-md text-sm font-medium"
             >
               {tech}
             </li>
@@ -91,7 +91,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
       </section>
 
       <section>
-        <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-4">
+        <h2 className="text-2xl font-semibold text-zinc-100 mb-4">
           Links
         </h2>
         <div className="space-y-3">
@@ -101,7 +101,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
                 href={project.projectUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-colors"
+                className="text-amber-400 hover:text-amber-300 hover:underline font-medium transition-colors"
               >
                 View Live Project &rarr;
               </a>
@@ -113,14 +113,14 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
                 href={project.repositoryUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-colors"
+                className="text-amber-400 hover:text-amber-300 hover:underline font-medium transition-colors"
               >
                 View Source Code &rarr;
               </a>
             </p>
           )}
           {!project.projectUrl && !project.repositoryUrl && (
-            <p className="text-gray-600 dark:text-gray-400">
+            <p className="text-zinc-500">
               No external links available for this project.
             </p>
           )}

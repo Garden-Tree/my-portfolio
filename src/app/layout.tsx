@@ -26,11 +26,11 @@ export default function RootLayout({
   return (
     <html lang="ja" suppressHydrationWarning className="scroll-pt-16">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-zinc-950 text-zinc-100`}
         suppressHydrationWarning
       >
         {/* Development Status Badge */}
-        <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 bg-yellow-100/10 dark:bg-yellow-900/40 border border-yellow-500/30 text-yellow-600 dark:text-yellow-400 px-4 py-2 rounded-full text-xs sm:text-sm font-medium backdrop-blur-md shadow-lg flex items-center gap-2 pointer-events-none select-none">
+        <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 bg-yellow-900/40 border border-yellow-500/30 text-yellow-500 px-4 py-2 rounded-full text-xs sm:text-sm font-medium backdrop-blur-md shadow-lg flex items-center gap-2 pointer-events-none select-none">
           <span aria-hidden="true">🚧</span>
           <span>このサイトは現在開発中です</span>
         </div>
