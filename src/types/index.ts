@@ -24,16 +24,29 @@ export interface SkillGroup {
 }
 
 
-// Profile interface
+// プロフィール関連のデータ
 export interface Profile {
   name: string;
   title: string;
   bio: string;
-  heroSubtitle?: string;       // ? はオプショナル（任意）なプロパティ
+  heroSubtitle?: string;
   heroCTA?: CTAButton;
   profileImageUrl?: string;
-  skills?: SkillGroup[];       // スキル情報も Profile に含める場合
-  // 他にもプロフィール関連のデータがあればここに追加
+  skills?: SkillGroup[];
+  certifications?: string[];
 }
 
-// 他の共通の型定義があればここに追加
+// タイムラインイベント型
+export interface TimelineEvent {
+  year: number;
+  title: string;
+  description?: string;
+}
+
+// アクティビティ（リーダーシップ等）型
+export interface Activity {
+  title: string;
+  role: string;
+  description: string;
+  imageUrl: string;
+}
