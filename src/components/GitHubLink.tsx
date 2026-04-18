@@ -23,7 +23,6 @@ export default function GitHubLink({ href, size = 24, className = '' }: GitHubLi
         width={size}
         height={size}
         style={{ width: 'auto', height: 'auto' }}
-        className={`invert dark:invert-0`}
       />
     </a>
   );
