@@ -10,7 +10,7 @@ interface AboutSectionProps {
 export default function AboutSection({ profile }: AboutSectionProps) {
   return (
     <section id="about" className="py-24 sm:py-32 bg-white dark:bg-[#0a0a0a] min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
-      <div className="container mx-auto max-w-5xl">
+      <div className="container mx-auto">
         <h2 className="text-3xl sm:text-4xl font-semibold text-center mb-16 text-gray-900 dark:text-gray-100 tracking-wide">
           About Me
         </h2>
@@ -37,7 +37,7 @@ export default function AboutSection({ profile }: AboutSectionProps) {
               <div className="mb-10 w-full bg-blue-50/50 dark:bg-blue-900/10 p-6 rounded-2xl border border-blue-100 dark:border-blue-800/30">
                 <h3 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white mb-5 flex items-center gap-3">
                   <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-blue-500">
-                    <circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
+                    <circle cx="12" cy="8" r="6" /><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
                   </svg>
                   Certifications & Awards
                 </h3>

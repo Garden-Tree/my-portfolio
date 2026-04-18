@@ -4,7 +4,7 @@ import activitiesData from '@/data/activities';
 export default function LeadershipSection() {
   return (
     <section id="leadership" className="py-20 sm:py-28 bg-white dark:bg-[#0a0a0a] px-4 sm:px-6 lg:px-8 border-t border-gray-100 dark:border-gray-800">
-      <div className="container mx-auto max-w-5xl">
+      <div className="container mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
             Leadership & Activities
@@ -13,11 +13,11 @@ export default function LeadershipSection() {
             組織を動かし、チーム全体の価値を最大化する取り組み
           </p>
         </div>
-        
+
         <div className="space-y-12 md:space-y-16">
           {activitiesData.map((activity, index) => (
             <div key={index} className="flex flex-col md:flex-row gap-8 lg:gap-12 items-center group">
-              
+
               {/* Image Section */}
               <div className="w-full md:w-2/5 relative aspect-[4/3] rounded-2xl overflow-hidden shadow-sm group-hover:shadow-xl transition-all duration-500 shrink-0 border border-gray-100 dark:border-gray-800">
                 <Image
@@ -42,7 +42,7 @@ export default function LeadershipSection() {
                   {activity.description}
                 </p>
               </div>
-              
+
             </div>
           ))}
         </div>

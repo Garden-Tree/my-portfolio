@@ -9,15 +9,15 @@ interface SkillsSectionProps {
 export default function SkillsSection({ skills }: SkillsSectionProps) {
   return (
     <section id="skills" className="py-24 sm:py-32 bg-gray-50 dark:bg-[#111] px-4 sm:px-6 lg:px-8 border-y border-gray-100 dark:border-gray-800">
-      <div className="container mx-auto max-w-5xl">
+      <div className="container mx-auto max-w-4xl">
         <h2 className="text-3xl sm:text-4xl font-semibold text-center mb-16 text-gray-900 dark:text-gray-100 tracking-wide">
           My Skills
         </h2>
         <div className="space-y-12">
           {skills.map((skillGroup, index) => (
-            <div 
-              key={skillGroup.category} 
-              className={`animate-fade-up`} 
+            <div
+              key={skillGroup.category}
+              className={`animate-fade-up`}
               style={{ animationDelay: `${index * 150}ms`, animationFillMode: 'both' }}
             >
               <h3 className="text-lg font-medium mb-5 text-gray-900 dark:text-gray-300 tracking-wide">
