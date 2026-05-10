@@ -5,11 +5,12 @@ export interface Project {
   slug: string; // IDとしても使用
   title: string;
   shortDescription: string;
-  longDescription?: string; // オプショナルなプロパティ
+  content?: string; // Markdownの本文
   imageUrl: string;
   technologies: string[];
   projectUrl?: string;
   repositoryUrl?: string;
+  order?: number; // 表示順（小さいほど先に表示、未指定は末尾）
 }
 
 // Profile 内で使われる型

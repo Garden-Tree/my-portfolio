@@ -25,7 +25,9 @@ GardenTreeの個人ポートフォリオサイトです。
 
 - `src/app/`: Next.js App Routerに基づく各ページ・ルート要素。
 - `src/components/`: 再利用可能なUIコンポーネント群（`HeroSection` 等）。
-- `src/data/`: ポートフォリオ用のコンテンツデータ (JSON形式)。静的データはここで一元管理され、コンポーネントに流し込まれます。
+- `src/content/projects/`: プロジェクトごとのMarkdownファイル。フロントマター（YAML）でメタデータを、本文でプロジェクトの詳細説明を管理します。
+- `src/data/`: プロフィール等の静的データ（TypeScript）。
+- `src/lib/`: Markdownパース等のユーティリティ関数。
 - `src/types/`: TypeScriptの型定義ファイル。
 - `docs/`: 開発・運用向けのドキュメント。
 

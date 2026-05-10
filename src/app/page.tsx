@@ -10,9 +10,11 @@ import SkillsSection from '@/components/sections/4SkillsSection';
 
 // データファイルをインポート
 import profileData from '@/data/profile';
-import projectsData from '@/data/projects';
+import { getProjects } from '@/lib/projects';
 
 export default function HomePage() {
+  const projectsData = getProjects();
+
   return (
     <>
       {/* 各セクションコンポーネントを配置し、必要なデータをpropsで渡す */}
