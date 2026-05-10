@@ -1,8 +1,8 @@
-import projectsData from '@/data/projects';
+import { getProjects, getProjectBySlug } from '@/lib/projects';
 import BackButton from '@/components/BackButton';
 import Image from 'next/image'; // next/image をインポート
 import { notFound } from 'next/navigation';
-import type { Project } from '@/types'; // 共通の型定義をインポート
+import ReactMarkdown from 'react-markdown';
 
 interface ProjectDetailPageProps {
   params: Promise<{
@@ -11,14 +11,15 @@ interface ProjectDetailPageProps {
 }
 
 export async function generateStaticParams() {
-  return projectsData.map((project: Project) => ({
+  const projects = getProjects();
+  return projects.map((project) => ({
     slug: project.slug,
   }));
 }
 
 export async function generateMetadata({ params }: ProjectDetailPageProps) {
   const resolvedParams = await params;
-  const project = projectsData.find((p: Project) => p.slug === resolvedParams.slug);
+  const project = getProjectBySlug(resolvedParams.slug);
   if (!project) {
     return {
       title: 'Project Not Found',
@@ -33,9 +34,7 @@ export async function generateMetadata({ params }: ProjectDetailPageProps) {
 export default async function ProjectDetailPage({ params }: ProjectDetailPageProps) {
   const resolvedParams = await params;
   const { slug } = resolvedParams;
-  // projectsDataをProject型として扱うことを明示
-  const typedProjectsData: Project[] = projectsData;
-  const project = typedProjectsData.find((p) => p.slug === slug);
+  const project = getProjectBySlug(slug);
 
   if (!project) {
     notFound();
@@ -63,15 +62,22 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
       </header>
 
       <section className="mb-10 max-w-none">
-        {/* proseクラスを使うとMarkdown風のスタイルが適用される */}
-        {/* 必要に応じて prose-headings:text-xl などで調整 */}
         <h2 className="text-2xl font-semibold text-zinc-100 mb-4">
           About This Project
         </h2>
-        <p className="text-zinc-300 whitespace-pre-wrap leading-relaxed">
-          {project.longDescription || project.shortDescription}
-        </p>
-        {/* \n が自然と改行として表示されるようになりました */}
+        {/* Markdown本文をReactMarkdownでレンダリング */}
+        <div className="prose prose-invert prose-zinc max-w-none
+          prose-headings:text-zinc-100 prose-headings:font-semibold
+          prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
+          prose-p:text-zinc-300 prose-p:leading-relaxed
+          prose-li:text-zinc-300
+          prose-strong:text-zinc-200
+          prose-a:text-amber-400 hover:prose-a:text-amber-300
+        ">
+          <ReactMarkdown>
+            {project.content || project.shortDescription}
+          </ReactMarkdown>
+        </div>
       </section>
 
       <section className="mb-10">
