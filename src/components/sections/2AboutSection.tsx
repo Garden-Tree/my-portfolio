@@ -28,7 +28,7 @@ export default function AboutSection({ profile }: AboutSectionProps) {
               </div>
             </div>
           )}
-          <div className="flex flex-col justify-center text-center lg:text-left">
+          <div className="flex flex-col justify-center text-left">
             <p className="text-base sm:text-lg md:text-xl text-zinc-400 leading-relaxed md:leading-loose mb-10 font-light whitespace-pre-wrap">
               {profile.bio}
             </p>
@@ -56,7 +56,7 @@ export default function AboutSection({ profile }: AboutSectionProps) {
               </div>
             )}
 
-            <div className="inline-flex mt-2 justify-center lg:justify-start">
+            <div className="inline-flex mt-2 justify-start">
               <GitHubLink href={profile.heroCTA?.href || "https://github.com/Garden-Tree"} size={36} />
             </div>
           </div>
