@@ -7,7 +7,8 @@
 - **言語**: [TypeScript](https://www.typescriptlang.org/)
 - **フレームワーク**: [Next.js (App Router)](https://nextjs.org/) ※現在 v16 / React v19 環境
 - **UIライブラリ**: [React](https://react.dev/)
-- **スタイリング**: [Tailwind CSS v4](https://tailwindcss.com/)
+- **スタイリング**: [Tailwind CSS v4](https://tailwindcss.com/) + [@tailwindcss/typography](https://github.com/tailwindlabs/tailwindcss-typography)
+- **コンテンツ管理**: [gray-matter](https://github.com/jonschlinkert/gray-matter) + [react-markdown](https://github.com/remarkjs/react-markdown)
 - **デプロイ環境**: [Vercel](https://vercel.com) (想定)
 
 ---
@@ -27,7 +28,7 @@ Next.js は以下の点でポートフォリオ開発に最も適しています
 
 「個人開発であっても、時間を空けて触ったときに壊れない仕組み」を作るためです。
 
-- **安全なデータバインディング**: プロフィールやプロジェクト等のテキストや画像URLは `src/data/` 以下のJSONファイルで一元管理しています。ここで `Project` や `Profile` のインターフェース型を厳密に定義することで、「プロパティのタイポ」や「未定義プロパティへのアクセス」などを書いている最中に検知でき、思わぬバグの発生を未然に防ぎます。
+- **安全なデータバインディング**: プロフィール等の静的データは `src/data/` で管理し、プロジェクトデータは `src/content/projects/` 配下のMarkdownファイルから `gray-matter` でパースしています。`Project` や `Profile` のインターフェース型を厳密に定義することで、「プロパティのタイポ」や「未定義プロパティへのアクセス」などを書いている最中に検知でき、思わぬバグの発生を未然に防ぎます。
 - **Vercelビルドでの水際防御**: デプロイ時に厳格な型チェック（`tsc`）が走るため、軽微なミスが本番環境へ流出するのを防げるというメリットは計り知れません。
 
 ### 3. Tailwind CSS (v4)
@@ -42,3 +43,11 @@ Next.js は以下の点でポートフォリオ開発に最も適しています
 
 Next.jsの開発チームが提供している基盤であり、相性が最も良いためです。
 GitHubのリポジトリを繋ぐだけで「プッシュするたびに自動で Lint/Type チェック → ビルド → デプロイ」という CI/CD サイクルが完成します。インフラの管理を気にせず、開発者はポートフォリオのコンテンツ拡充やブラッシュアップにのみ集中できます。
+
+### 5. gray-matter + react-markdown（コンテンツ管理）
+
+プロジェクトデータの「保守性」と「リッチな表現力」を両立するためです。
+
+- **コンテンツとコードの分離**: 各プロジェクトの説明文を `src/content/projects/` 配下のMarkdownファイルとして管理しています。TypeScriptのコードと切り離すことで、文章の修正・追加がコードの変更なしに完結します。
+- **gray-matter によるメタデータ管理**: Markdownファイルの冒頭にあるフロントマター（YAML）から、タイトル・技術スタック・表示順序などのメタデータを型安全にパースします。
+- **react-markdown による描画**: Markdown本文をReactコンポーネントとしてレンダリングし、`@tailwindcss/typography` の `prose` クラスと組み合わせることで、見出し・段落・リストなどがサイトのデザインに統一されたスタイルで表示されます。
