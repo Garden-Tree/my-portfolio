@@ -4,7 +4,7 @@ title: "Raspberry Piを用いたスマートリモコンの開発"
 slug: "smart-remote-control-for-raspberry-pi"
 shortDescription: "GPIOと赤外線通信を制御し、外出先やSNSから家電を操作できる自作スマートリモコンシステムを構築しました。"
 technologies: ["Raspberry Pi", "Python", "Node-RED", "IFTTT", "irrp.py"]
-imageUrl: "/images/smartrimocon.jpg"
+imageUrl: "/images/smart-remote.jpg"
 ---
 
 ## 概要
