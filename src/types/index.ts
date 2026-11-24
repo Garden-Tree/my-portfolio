@@ -1,5 +1,3 @@
-// src/types/index.ts
-
 // Project interface
 export interface Project {
   slug: string; // IDとしても使用
@@ -11,14 +9,11 @@ export interface Project {
   projectUrl?: string;
   repositoryUrl?: string;
   order?: number; // 表示順（小さいほど先に表示、未指定は末尾）
+  imageFit?: 'cover' | 'contain'; // 詳細ページでの画像の収め方（既定はcover）
+  imageMaxWidth?: number; // 小さい画像を引き伸ばさないための最大幅(px)
 }
 
 // Profile 内で使われる型
-export interface CTAButton {
-  text: string;
-  href: string;
-}
-
 export interface SkillGroup {
   category: string;
   items: string[];
@@ -30,11 +25,9 @@ export interface Profile {
   name: string;
   title: string;
   bio: string;
-  heroSubtitle?: string;
-  heroCTA?: CTAButton;
-  profileImageUrl?: string;
-  skills?: SkillGroup[];
-  certifications?: string[];
+  profileImageUrl: string;
+  skills: SkillGroup[];
+  certifications: string[];
 }
 
 // タイムラインイベント型
@@ -50,4 +43,4 @@ export interface Activity {
   role: string;
   description: string;
   imageUrl: string;
-}
+}

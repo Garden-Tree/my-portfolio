@@ -1,5 +1,3 @@
-// src/components/ProjectCard.tsx
-
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -7,10 +5,9 @@ import type { Project } from '@/types';
 
 interface ProjectCardProps {
   project: Project;
-  priority?: boolean;
 }
 
-export default function ProjectCard({ project, priority = false }: ProjectCardProps) {
+export default function ProjectCard({ project }: ProjectCardProps) {
   return (
     <Link
       href={`/projects/${project.slug}`}
@@ -18,23 +15,21 @@ export default function ProjectCard({ project, priority = false }: ProjectCardPr
     >
       {/* プロジェクト画像 */}
       {project.imageUrl && (
-        <div className="relative w-full h-48 sm:h-56 overflow-hidden">
+        <div className="relative w-full aspect-video overflow-hidden">
           <Image
             src={project.imageUrl}
             alt={project.title}
-            fill // 親要素いっぱいに表示
-            style={{ objectFit: 'cover' }} // アスペクト比を保ちつつカバー
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" // レスポンシブな画像読み込みのヒント
-            priority={priority}
+            fill
+            style={{ objectFit: 'cover' }}
+            sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw"
           />
-          {/* subtle overlay to make standard placeholders look better */}
           <div className="absolute inset-0 bg-gray-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         </div>
       )}
 
       {/* プロジェクト情報 */}
       <div className="p-5 sm:p-6 flex-grow flex flex-col">
-        <h3 className="text-xl sm:text-2xl font-semibold mb-2 text-zinc-100">
+        <h3 className="text-lg sm:text-xl font-semibold mb-2 text-zinc-100">
           {project.title}
         </h3>
         <p className="text-zinc-400 text-sm leading-relaxed mb-4 flex-grow">
@@ -44,7 +39,7 @@ export default function ProjectCard({ project, priority = false }: ProjectCardPr
         {/* 使用技術 */}
         {project.technologies && project.technologies.length > 0 && (
           <div className="mb-4">
-            <h4 className="text-xs font-semibold text-zinc-500 uppercase mb-1">Technologies Used:</h4>
+            <h4 className="text-xs font-semibold text-zinc-500 mb-2">使用技術</h4>
             <div className="flex flex-wrap gap-2">
               {project.technologies.map((tech) => (
                 <span

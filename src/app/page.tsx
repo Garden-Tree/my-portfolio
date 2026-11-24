@@ -1,29 +1,26 @@
-// app/page.tsx や pages/index.tsx などのホームページ用ファイル
+import HeroSection from '@/components/sections/HeroSection';
+import AboutSection from '@/components/sections/AboutSection';
+import CertificationsSection from '@/components/sections/CertificationsSection';
+import TimelineSection from '@/components/sections/TimelineSection';
+import ProjectsSection from '@/components/sections/ProjectsSection';
+import LeadershipSection from '@/components/sections/LeadershipSection';
+import SkillsSection from '@/components/sections/SkillsSection';
+import ContactSection from '@/components/sections/ContactSection';
 
-// 各セクションコンポーネントをインポート (パスは適宜調整してください)
-import HeroSection from '@/components/sections/1HeroSection';
-import AboutSection from '@/components/sections/2AboutSection';
-import TimelineSection from '@/components/sections/5TimelineSection';
-import ProjectsSection from '@/components/sections/3ProjectsSection';
-import LeadershipSection from '@/components/sections/6LeadershipSection';
-import SkillsSection from '@/components/sections/4SkillsSection';
-
-// データファイルをインポート
 import profileData from '@/data/profile';
 import { getProjects } from '@/lib/projects';
 
 export default function HomePage() {
-  const projectsData = getProjects();
-
   return (
     <>
-      {/* 各セクションコンポーネントを配置し、必要なデータをpropsで渡す */}
       <HeroSection profile={profileData} />
       <AboutSection profile={profileData} />
+      <CertificationsSection certifications={profileData.certifications} />
       <TimelineSection />
-      <ProjectsSection projects={projectsData} />
+      <ProjectsSection projects={getProjects()} />
       <LeadershipSection />
-      <SkillsSection skills={profileData.skills || []} />
+      <SkillsSection skills={profileData.skills} />
+      <ContactSection />
     </>
   );
 }
