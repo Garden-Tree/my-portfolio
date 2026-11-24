@@ -5,6 +5,27 @@ slug: "motorcycle-hmd-study"
 shortDescription: "実機HMDとドライビングシミュレータを連動させ、ライダーの安全性を向上させる最適なUI/UXを定量評価した人間工学研究です。"
 technologies: ["Python", "HTML", "CSS", "JavaScript", "WebSocket", "HMD (XREAL)", "Assetto Corsa"]
 imageUrl: "/images/hmd.jpg"
+status: "研究"
+diagram:
+  caption: "実験システムの構成"
+  steps:
+    - title: "シミュレータ"
+      items:
+        - "Assetto Corsa"
+    - title: "実験バックエンド"
+      via: "走行データ"
+      items:
+        - "Python"
+        - "走行データを配信"
+    - title: "HMD"
+      via: "WebSocket"
+      items:
+        - "XREAL Air 2 Ultra"
+        - "Web UIに情報を表示"
+    - title: "測定"
+      via: "被験者の反応"
+      items:
+        - "反応時間をミリ秒単位で記録"
 ---
 
 ## 概要
@@ -20,6 +41,8 @@ imageUrl: "/images/hmd.jpg"
 - 実験バックエンド: Python
 - HMD UI: HTML/CSS/JavaScript
 - HMD: XREAL Air 2 Ultra
+
+{{diagram}}
 
 ## 主な特徴と技術的な工夫
 - 定量的な評価指標として、被験者実験を通じ、特定の情報（標識、速度等）に対する反応時間をミリ秒単位でログ化しました。

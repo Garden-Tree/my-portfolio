@@ -6,6 +6,25 @@ shortDescription: "物理サーバー上に仮想化環境（Proxmox/Docker）�
 technologies: ["Proxmox VE", "Docker", "Ubuntu Server", "Tailscale"]
 imageUrl: "/images/proxmox.png"
 imageFit: contain
+status: "運用中"
+diagram:
+  caption: "自宅サーバーの構成"
+  steps:
+    - title: "外部の端末"
+      items:
+        - "SSH"
+        - "管理画面の操作"
+    - title: "Proxmox VE"
+      via: "Tailscale"
+      items:
+        - "自作PC上で稼働"
+        - "LXC / Docker"
+    - title: "主な稼働サービス"
+      via: "提供"
+      items:
+        - "Minecraft サーバー"
+        - "Discord Bot"
+        - "VPN基盤"
 ---
 
 ## 概要
@@ -21,6 +40,8 @@ imageFit: contain
 - 仮想化技術: LXC (Linux Containers) / Docker
 - ネットワーク: Tailscale (Mesh VPN)
 - 主な稼働サービス: Minecraft サーバー / Discord Bot / VPN基盤
+
+{{diagram}}
 
 ## 主な特徴と技術的な工夫
 - 友人用のMinecraftサーバーから自作のDiscord Botまで、必要なサービスを24時間低コストで提供する多目的サーバーとして運用しています。

@@ -1,5 +1,5 @@
 ---
-order: 5
+order: 6
 title: "大学内過去問共有プラットフォームの構築"
 slug: "past-exam-sharing-site"
 shortDescription: "大学内の過去問データをデジタル化・集約し、認証・検索・投稿機能を備えた快適な情報共有基盤を開発しました。"
@@ -8,6 +8,9 @@ imageUrl: "/images/kakomon.png"
 imageFit: contain
 projectUrl: "https://chodai-kakomon-hub.vercel.app"
 repositoryUrl: "https://github.com/Garden-Tree/chodai-kakomon-hub"
+status: "公開中"
+period: "2026年4月〜"
+team: "個人開発"
 ---
 
 ## 概要

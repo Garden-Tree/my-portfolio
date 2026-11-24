@@ -1,3 +1,13 @@
+// 構成図（矢印でつないだ箱の並び）
+export interface ProjectDiagram {
+  caption: string;
+  steps: {
+    title: string;
+    items: string[];
+    via?: string; // 前の箱からこの箱への矢印に添える語
+  }[];
+}
+
 // Project interface
 export interface Project {
   slug: string; // IDとしても使用
@@ -5,6 +15,11 @@ export interface Project {
   shortDescription: string;
   content?: string; // Markdownの本文
   imageUrl: string;
+  status?: string; // 稼働状況（公開中、研究など）
+  period?: string; // 期間
+  team?: string; // 体制（個人開発など）
+  role?: string; // 担当
+  diagram?: ProjectDiagram; // 本文の {{diagram}} の位置に表示する
   technologies: string[];
   projectUrl?: string;
   repositoryUrl?: string;
@@ -24,6 +39,7 @@ export interface SkillGroup {
 export interface Profile {
   name: string;
   title: string;
+  subtitle: string;
   bio: string;
   profileImageUrl: string;
   skills: SkillGroup[];

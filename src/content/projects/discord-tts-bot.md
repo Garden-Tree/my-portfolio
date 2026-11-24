@@ -1,5 +1,5 @@
 ---
-order: 6
+order: 7
 title: "Discord向けテキスト読み上げ(TTS) Botの開発・運用"
 slug: "discord-tts-bot"
 shortDescription: "PythonとTTS APIを組み合わせた読み上げBot。Docker化による安定した実行環境を構築し、24時間運用しています。"
@@ -7,6 +7,9 @@ technologies: ["Python", "discord.py", "GCP (TTS API)", "VOICEVOX", "Docker", "L
 imageUrl: "/images/yomi-KAI.webp"
 imageMaxWidth: 473
 repositoryUrl: "https://github.com/Garden-Tree/yomi-KAI"
+status: "運用中"
+period: "2021年8月〜"
+team: "個人開発"
 ---
 
 ## 概要

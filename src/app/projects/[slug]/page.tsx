@@ -1,6 +1,8 @@
 import { getProjects, getProjectBySlug } from '@/lib/projects';
 import BackButton from '@/components/BackButton';
+import FlowDiagram from '@/components/FlowDiagram';
 import Image from 'next/image';
+import { Fragment } from 'react';
 import { notFound } from 'next/navigation';
 import ReactMarkdown from 'react-markdown';
 
@@ -38,6 +40,14 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
   const project = getProjectBySlug(slug);
 
   if (!project) notFound();
+
+  const facts = [
+    { label: '状況', value: project.status },
+    { label: '期間', value: project.period },
+    { label: '体制', value: project.team },
+    { label: '担当', value: project.role },
+  ].filter((fact) => fact.value);
+  const [beforeDiagram, afterDiagram] = (project.content || project.shortDescription).split('{{diagram}}');
 
   return (
     <div className="min-h-screen bg-zinc-950 text-zinc-300">
@@ -80,9 +90,9 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
               prose-strong:text-zinc-100
               prose-a:text-amber-400 hover:prose-a:text-amber-300
             ">
-              <ReactMarkdown>
-                {project.content || project.shortDescription}
-              </ReactMarkdown>
+              <ReactMarkdown>{beforeDiagram}</ReactMarkdown>
+              {project.diagram && <FlowDiagram diagram={project.diagram} />}
+              {afterDiagram && <ReactMarkdown>{afterDiagram}</ReactMarkdown>}
             </section>
           </div>
 
@@ -91,6 +101,22 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
 
             {/* 使用技術 */}
             <section className="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-6 sticky top-24">
+              {facts.length > 0 && (
+                <div className="mb-8 pb-8 border-b border-zinc-800">
+                  <h2 className="text-xl font-bold text-zinc-100 mb-6 flex items-center">
+                    <span className="w-1.5 h-6 bg-amber-500 rounded-full mr-3" />
+                    基本情報
+                  </h2>
+                  <dl className="grid grid-cols-[3rem_1fr] gap-y-3 text-sm leading-relaxed">
+                    {facts.map((fact) => (
+                      <Fragment key={fact.label}>
+                        <dt className="text-zinc-500">{fact.label}</dt>
+                        <dd className="text-zinc-200">{fact.value}</dd>
+                      </Fragment>
+                    ))}
+                  </dl>
+                </div>
+              )}
               <h2 className="text-xl font-bold text-zinc-100 mb-6 flex items-center">
                 <span className="w-1.5 h-6 bg-amber-500 rounded-full mr-3" />
                 使用技術

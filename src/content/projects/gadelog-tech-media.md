@@ -1,5 +1,5 @@
 ---
-order: 8
+order: 9
 title: "テックメディア「Gadelog」の構築・運営"
 slug: "gadelog-tech-media"
 shortDescription: "WordPressを用いたテックメディアの構築から、レンタルサーバーの保守、SEOを考慮した運用までを一貫して行っています。"
@@ -7,6 +7,10 @@ technologies: ["WordPress","HTML", "CSS", "JavaScript", "PHP"]
 imageUrl: "/images/gadelog.png"
 imageFit: contain
 projectUrl: "https://gadelog.com/"
+status: "運営中"
+period: "2022年12月〜"
+team: "個人運営"
+role: "記事の発信、サーバーの設定・保守、フロントエンドのカスタマイズ、SEO"
 ---
 
 ## 概要
