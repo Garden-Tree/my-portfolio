@@ -5,7 +5,7 @@ interface CertificationsSectionProps {
 export default function CertificationsSection({ certifications }: CertificationsSectionProps) {
   return (
     <section id="certifications" className="py-16 sm:py-20 bg-zinc-900 border-t border-zinc-800 px-4 sm:px-6 lg:px-8">
-      <div className="container mx-auto max-w-4xl">
+      <div className="container mx-auto max-w-6xl">
         <h2 className="text-2xl sm:text-3xl font-bold text-center mb-10 text-zinc-100 tracking-tight">
           資格・受賞
         </h2>

@@ -4,7 +4,7 @@ import activitiesData from '@/data/activities';
 export default function LeadershipSection() {
   return (
     <section id="leadership" className="py-24 sm:py-32 bg-zinc-900 px-4 sm:px-6 lg:px-8 border-t border-zinc-800">
-      <div className="container mx-auto">
+      <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-zinc-100 mb-4 tracking-tight">
             リーダーシップと活動
@@ -25,7 +25,7 @@ export default function LeadershipSection() {
                   alt={activity.title}
                   fill
                   style={{ objectFit: 'cover' }}
-                  sizes="(max-width: 768px) 100vw, 40vw"
+                  sizes="(max-width: 767px) 100vw, (max-width: 1199px) 40vw, 440px"
                 />
               </div>
 

@@ -5,7 +5,6 @@ slug: "smart-trash-can"
 shortDescription: "Sigfox通信とセンサーを活用し、ゴミの蓄積量をリアルタイムで可視化・通知するIoTシステムです。"
 technologies: ["Arduino", "LPWA (Sigfox)", "Python", "Flask"]
 imageUrl: "/images/trash.jpg"
-repositoryUrl: "https://github.com/Garden-Tree/dustbox"
 ---
 
 ## 概要
@@ -18,7 +17,7 @@ repositoryUrl: "https://github.com/Garden-Tree/dustbox"
 省電力性を重視したエッジデバイスと、データ収集・可視化を担うバックエンドで構成されています。
 
 - マイコン: Arduino (ATmega328P)
-- センサー: 超音波距離センサー
+- センサー: 超音波距離センサー / 匂いセンサー
 - 通信: Sigfox (LPWA)
 - バックエンド: Python (Flask)
 - 可視化: HTML/CSS/JS (Dashboards)

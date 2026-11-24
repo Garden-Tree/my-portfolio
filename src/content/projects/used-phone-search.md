@@ -2,8 +2,8 @@
 order: 10
 title: "中古スマホ一括検索 (powered by Gadelog)"
 slug: "used-phone-search"
-shortDescription: "大手5社の中古スマホ在庫を横断検索・比較できる、データ収集を自動化したサーバーレスWebアプリケーションです。"
-technologies: ["Next.js", "TypeScript", "Python", "PostgreSQL", "Tailwind CSS", "Prisma", "Neon"]
+shortDescription: "大手18店の中古スマホ・タブレットなどの在庫を横断検索・比較できる、データ収集を自動化したWebアプリケーションです。"
+technologies: ["Next.js", "TypeScript", "Python", "PostgreSQL", "Tailwind CSS", "Prisma", "Neon", "GitHub Actions", "Cloudflare Pages"]
 imageUrl: "/images/used.png"
 imageFit: contain
 projectUrl: "https://used.gadelog.com"
@@ -12,7 +12,7 @@ repositoryUrl: "https://github.com/Garden-Tree/used-phone-search"
 
 ## 概要
 
-日本全国の大手中古スマホショップ（イオシス、ゲオモバイル、にこスマ、ダイワンテレコム、エムモバ）の在庫データを収集し、一括で比較・検索できるWebサービスです。
+イオシス、じゃんぱら、ゲオモバイル、ソフマップ、にこスマなど18店の在庫データ（約7万件、2026年11月時点）を収集し、一括で比較・検索できるWebサービスです。iPhone・iPad・Androidスマホのほか、Apple WatchやMacなども扱っています。
 価格比較にとどまらず、中古スマホ選びで最重要となる「状態ランク」や「バッテリー最大容量」での詳細な絞り込み・並び替え機能を備え、ユーザーが自分に合う端末を探しやすくしています。
 
 ## 背景と課題
@@ -23,22 +23,22 @@ repositoryUrl: "https://github.com/Garden-Tree/used-phone-search"
 
 ## 技術スタックとアーキテクチャ
 
-保守性とパフォーマンスを両立するため、フロントエンドからインフラまで完全サーバーレスなモダンアーキテクチャを採用しています。
+全ページをビルド時に静的ファイルとして書き出して配信し、データベースはデータの取り込みとビルドのときだけ使う構成です。
 
-- フロントエンド / API: Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS 4
+- フロントエンド: Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS 4
 - データベース / ORM: PostgreSQL (Neon), Prisma
-- データ収集: Python (BeautifulSoup4, psycopg2)
-- インフラ / CI/CD: Vercel, GitHub Actions
+- データ収集: Python (BeautifulSoup4, psycopg2)、楽天・Yahoo!ショッピング・AmazonのAPI、PHP
+- インフラ / CI/CD: Cloudflare Pages, GitHub Actions, シン・レンタルサーバー
 
-Vercel上でNext.jsアプリケーションをホスティングし、データベースにはサーバーレスDBaaSであるNeonを採用しています。データ収集のバッチ処理はGitHub ActionsのCronスケジュールで自動化しています。
+レンタルサーバーのcronが楽天市場のデータを取得してGitHub Actionsを起動します。GitHub Actionsは各店のデータをNeonに取り込み、サイトを書き出してCloudflare Pagesに配置します。この更新を1日4回行っています。
 
 ## 主な特徴と技術的な工夫
 - ユーザー視点でUIを設計し、「バッテリー最大容量順」でのソートやiOSサポート状況の可視化など、中古特有のリスクを軽減するUIを追求しました。
-- 提携ショップロゴの配置やメディアブランドの活用により、ユーザーの信頼感を高めることを目指しました。
-- スクレイピングで収集したデータを正規化するために、各社で異なる状態ランク・ネットワーク制限表記を独自ロジックで統一・クレンジングする基盤を構築しました。
-- Intersection Observerによる無限スクロールで高速なUIを、Prismaを用いた動的なマルチ条件フィルタリングで高度な検索クエリを実現し、大量の在庫データから快適に検索できるようにしました。
+- 店ごとに異なる保証やネットワーク利用制限（赤ロム）の条件を在庫の一覧に表示し、価格以外の条件も比べられるようにしました。
+- スクレイピングやAPIで収集したデータを正規化するために、各社で異なる状態ランク・ネットワーク制限表記を独自ロジックで統一・クレンジングする基盤を構築しました。
+- 機種ごとの在庫をJSONとして書き出し、ブラウザ側で複数条件の絞り込みを行います。結果はIntersection Observerによる無限スクロールで順に表示し、大量の在庫データから快適に検索できるようにしました。
 
 ## 成果と今後の展望
 
-バッチ処理からデータベース、フロントエンドの配信までを自動化・サーバーレス化したことで、手作業なしで価格情報が更新される運用基盤を構築しました。
-今後は、ユーザーが指定した条件（特定のモデル・価格以下など）を満たした際にお知らせする「値下げアラート機能」の実装や、Android端末への対応モデル拡大を視野に開発を継続していきます。
+データの取り込みからサイトの書き出し、配信までを自動化したことで、手作業なしで価格情報が更新される運用基盤を構築しました。
+今後は、ユーザーが指定した条件（特定のモデル・価格以下など）を満たした際にお知らせする「値下げアラート機能」の実装を視野に開発を継続していきます。

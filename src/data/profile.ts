@@ -13,11 +13,11 @@ Webアプリ開発から仮想化基盤運用、ハードウェア制御まで�
   skills: [
     {
       category: "Frontend",
-      items: ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Next.js", "Tailwind CSS", "Clerk"]
+      items: ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Next.js", "Tailwind CSS", "Clerk", "WordPress"]
     },
     {
       category: "Backend",
-      items: ["Python", "FastAPI", "Flask", "Java", "Node.js", "C++", "C", "Shell Script", "discord.py", "WebSocket"]
+      items: ["Python", "FastAPI", "Flask", "Java", "Node.js", "C++", "C", "PHP", "Shell Script", "discord.py", "WebSocket"]
     },
     {
       category: "Game Development",
@@ -25,7 +25,7 @@ Webアプリ開発から仮想化基盤運用、ハードウェア制御まで�
     },
     {
       category: "Machine Learning / Data Science",
-      items: ["Scikit-learn", "Pandas", "NumPy", "matplotlib", "R"]
+      items: ["Scikit-learn", "Pandas", "NumPy", "matplotlib", "R", "Gemini API"]
     },
     {
       category: "Hardware",
@@ -33,11 +33,11 @@ Webアプリ開発から仮想化基盤運用、ハードウェア制御まで�
     },
     {
       category: "Database",
-      items: ["SQL", "PostgreSQL", "Supabase"]
+      items: ["SQL", "PostgreSQL", "Supabase", "Neon", "Prisma"]
     },
     {
       category: "Infrastructure & DevOps",
-      items: ["Proxmox VE", "Tailscale", "Docker", "Linux", "Git", "GitHub", "GitHub Actions", "Vercel"]
+      items: ["Proxmox VE", "Tailscale", "Docker", "Linux", "Git", "GitHub", "GitHub Actions", "Vercel", "GCP"]
     }
   ],
   certifications: [
