@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Noto_Sans_JP } from "next/font/google";
+import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import { siteConfig } from "@/lib/site";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -13,9 +15,24 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const notoSansJp = Noto_Sans_JP({
+  variable: "--font-noto-sans-jp",
+  subsets: ["latin"],
+  preload: false,
+});
+
 export const metadata: Metadata = {
-  title: "GardenTree's Portfolio",
-  description: "GardenTreeのポートフォリオサイト。ハードウェアからクラウドまで、アイデアを形にしたプロジェクトを紹介します。",
+  metadataBase: new URL(siteConfig.url),
+  title: siteConfig.title,
+  description: siteConfig.description,
+  openGraph: {
+    type: "website",
+    locale: "ja_JP",
+    siteName: siteConfig.title,
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
 };
 
 export default function RootLayout({
@@ -26,18 +43,12 @@ export default function RootLayout({
   return (
     <html lang="ja" suppressHydrationWarning className="scroll-pt-16">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-zinc-950 text-zinc-100`}
+        className={`${geistSans.variable} ${geistMono.variable} ${notoSansJp.variable} antialiased`}
         suppressHydrationWarning
       >
-        {/* Development Status Badge */}
-        <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 bg-yellow-900/40 border border-yellow-500/30 text-yellow-500 px-4 py-2 rounded-full text-xs sm:text-sm font-medium backdrop-blur-md shadow-lg flex items-center gap-2 pointer-events-none select-none">
-          <span aria-hidden="true">🚧</span>
-          <span>このサイトは現在開発中です</span>
-        </div>
         <Navbar />
-        <main>
-          {children}
-        </main>
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );

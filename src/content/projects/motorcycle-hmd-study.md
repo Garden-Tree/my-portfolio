@@ -4,8 +4,7 @@ title: "二輪車用HMDにおける表示情報と表示位置の検討（卒業
 slug: "motorcycle-hmd-study"
 shortDescription: "実機HMDとドライビングシミュレータを連動させ、ライダーの安全性を向上させる最適なUI/UXを定量評価した人間工学研究です。"
 technologies: ["Python", "HTML", "CSS", "JavaScript", "WebSocket", "HMD (XREAL)", "Assetto Corsa"]
-imageUrl: "/images/hmd.png"
-repositoryUrl: "https://github.com/Garden-Tree/research"
+imageUrl: "/images/hmd.jpg"
 ---
 
 ## 概要
@@ -17,15 +16,15 @@ repositoryUrl: "https://github.com/Garden-Tree/research"
 ## 技術スタックとアーキテクチャ
 シミュレータからの車両データ取得、HMDへの描画、反応速度の測定を統合した実験システムを自作しました。
 
-- **シミュレータ**: Assetto Corsa
-- **実験バックエンド**: Python
-- **HMD UI**: HTML/CSS/JavaScript
-- **HMD**: XREAL Air 2 Ultra
+- シミュレータ: Assetto Corsa
+- 実験バックエンド: Python
+- HMD UI: HTML/CSS/JavaScript
+- HMD: XREAL Air 2 Ultra
 
 ## 主な特徴と技術的な工夫
-- **定量的な評価指標**: 被験者実験を通じ、特定の情報（標識、速度等）に対する反応時間をミリ秒単位でログ化。
-- **柔軟なUIプロトタイピング**: Web技術（HTML/CSS）の活用により、表示位置やフォントサイズなどの条件変更を即座に行える柔軟性を確保。
-- **低遅延なデータ連携基盤**: シミュレータ走行データをPython経由でミリ秒単位で取得し、WebSocketを用いてHMD上のWeb UIへリアルタイム配信するシステムを構築。
+- 定量的な評価指標として、被験者実験を通じ、特定の情報（標識、速度等）に対する反応時間をミリ秒単位でログ化しました。
+- Web技術（HTML/CSS）の活用により、表示位置やフォントサイズなどの条件変更を即座に行える、UIプロトタイピングの柔軟性を確保しました。
+- シミュレータの走行データをPython経由でミリ秒単位で取得し、WebSocketを用いてHMD上のWeb UIへリアルタイム配信する、低遅延なデータ連携基盤を構築しました。
 
 ## 成果と今後の展望
-本研究成果は情報処理学会全国大会にて発表し、**学生奨励賞**を受賞しました。今後はAR技術を活用し、カーブの曲がり角などの環境情報を実景に重畳させるシステムの構築を目指しています。
+本研究の成果を情報処理学会全国大会で発表し、**学生奨励賞**を受賞しました。今後はAR技術を活用し、カーブの曲がり角などの環境情報を実景に重畳させるシステムの構築を目指しています。

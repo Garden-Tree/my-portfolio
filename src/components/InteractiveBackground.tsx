@@ -11,7 +11,9 @@ export default function InteractiveBackground() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    let animationFrameId: number;
+    let animationFrameId = 0;
+    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let isVisible = true;
     let particles: Particle[] = [];
     
     // Resize
@@ -19,6 +21,7 @@ export default function InteractiveBackground() {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
       initParticles();
+      if (motionQuery.matches) drawFrame();
     };
 
     const mouse = { x: -1000, y: -1000 };
@@ -36,7 +39,7 @@ export default function InteractiveBackground() {
 
     window.addEventListener("resize", handleResize);
     window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("mouseleave", handleMouseLeave);
+    document.addEventListener("mouseleave", handleMouseLeave);
 
     class Particle {
       x: number;
@@ -86,7 +89,7 @@ export default function InteractiveBackground() {
 
     const drawLines = () => {
       for (let i = 0; i < particles.length; i++) {
-        for (let j = i; j < particles.length; j++) {
+        for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
           const dy = particles[i].y - particles[j].y;
           const distance = Math.sqrt(dx * dx + dy * dy);
@@ -116,23 +119,46 @@ export default function InteractiveBackground() {
       }
     };
 
-    const animate = () => {
+    const drawFrame = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       for (const p of particles) {
-        p.update();
         p.draw();
       }
       drawLines();
+    };
+
+    const animate = () => {
+      for (const p of particles) p.update();
+      drawFrame();
       animationFrameId = requestAnimationFrame(animate);
     };
 
+    // 画面外にある間と、動きを減らす設定のときはアニメーションを止める
+    const restart = () => {
+      cancelAnimationFrame(animationFrameId);
+      if (!isVisible) return;
+      if (motionQuery.matches) {
+        drawFrame();
+      } else {
+        animate();
+      }
+    };
+
+    const observer = new IntersectionObserver(([entry]) => {
+      isVisible = entry.isIntersecting;
+      restart();
+    });
+
     handleResize();
-    animate();
+    observer.observe(canvas);
+    motionQuery.addEventListener("change", restart);
 
     return () => {
+      observer.disconnect();
+      motionQuery.removeEventListener("change", restart);
       window.removeEventListener("resize", handleResize);
       window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("mouseleave", handleMouseLeave);
+      document.removeEventListener("mouseleave", handleMouseLeave);
       cancelAnimationFrame(animationFrameId);
     };
   }, []);

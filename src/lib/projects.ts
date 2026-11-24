@@ -1,5 +1,3 @@
-// src/lib/projects.ts
-
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
@@ -21,6 +19,8 @@ function parseProjectFile(fileName: string, fileContents: string): Project {
     projectUrl: data.projectUrl,
     repositoryUrl: data.repositoryUrl,
     order: data.order,
+    imageFit: data.imageFit,
+    imageMaxWidth: data.imageMaxWidth,
     content,
   };
 }

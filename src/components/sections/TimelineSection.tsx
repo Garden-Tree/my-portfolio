@@ -8,7 +8,7 @@ export default function TimelineSection() {
     <section id="timeline" className="py-24 sm:py-32 bg-zinc-950 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto max-w-4xl">
         <h2 className="text-3xl sm:text-4xl font-bold text-center mb-16 text-zinc-100 tracking-tight">
-          My Timeline
+          経歴
         </h2>
         
         {/* Timeline Container */}

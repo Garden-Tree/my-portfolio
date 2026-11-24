@@ -20,10 +20,15 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: ProjectDetailPageProps) {
   const resolvedParams = await params;
   const project = getProjectBySlug(resolvedParams.slug);
-  if (!project) return { title: 'Project Not Found' };
+  if (!project) return { title: 'プロジェクトが見つかりません' };
   return {
-    title: `${project.title} - Project Details`,
+    title: `${project.title} | GardenTree`,
     description: project.shortDescription,
+    openGraph: {
+      title: project.title,
+      description: project.shortDescription,
+      images: [project.imageUrl],
+    },
   };
 }
 
@@ -44,13 +49,16 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
             {project.title}
           </h1>
           {project.imageUrl && (
-            <div className="relative w-full aspect-[21/9] rounded-2xl overflow-hidden shadow-2xl border border-zinc-800">
+            <div
+              className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl border border-zinc-800 bg-zinc-900"
+              style={{ maxWidth: project.imageMaxWidth }}
+            >
               <Image
                 src={project.imageUrl}
                 alt={project.title}
                 fill
-                className="object-cover"
-                sizes="(max-width: 1280px) 100vw, 1280px"
+                className={project.imageFit === 'contain' ? 'object-contain' : 'object-cover'}
+                sizes="(max-width: 1280px) 100vw, 1216px"
                 priority
               />
             </div>
@@ -58,17 +66,17 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
         </header>
 
         {/* 2カラムレイアウトエリア */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
 
           {/* 左側: メインコンテンツ (本文) */}
-          <div className="lg:col-span-8">
+          <div className="lg:col-span-9">
             <section className="prose prose-invert prose-zinc max-w-none
               prose-headings:text-zinc-100 prose-headings:font-bold
-              prose-h2:text-2xl prose-h2:border-b prose-h2:border-zinc-800 prose-h2:pb-1 prose-h2:mt-4 prose-h2:mb-2
-              prose-h3:text-xl prose-h3:mt-4 prose-h3:mb-2
-              prose-p:text-zinc-300 prose-p:leading-relaxed prose-p:text-lg prose-p:my-1
-              prose-ul:my-0
-              prose-li:text-zinc-300 prose-li:text-lg prose-li:my-0
+              prose-h2:text-2xl prose-h2:border-b prose-h2:border-zinc-800 prose-h2:pb-3 prose-h2:mt-14 prose-h2:mb-6 [&>h2:first-child]:mt-0
+              prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
+              prose-p:text-zinc-300 prose-p:text-lg/9 prose-p:my-5
+              prose-ul:my-5
+              prose-li:text-zinc-300 prose-li:text-lg/9 prose-li:my-2
               prose-strong:text-zinc-100
               prose-a:text-amber-400 hover:prose-a:text-amber-300
             ">
@@ -79,10 +87,10 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
           </div>
 
           {/* 右側: サイドバー (使用技術・リンク) */}
-          <aside className="lg:col-span-4 space-y-12">
+          <aside className="lg:col-span-3 space-y-12">
 
             {/* 使用技術 */}
-            <section className="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-8 sticky top-24">
+            <section className="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-6 sticky top-24">
               <h2 className="text-xl font-bold text-zinc-100 mb-6 flex items-center">
                 <span className="w-1.5 h-6 bg-amber-500 rounded-full mr-3" />
                 使用技術
@@ -98,7 +106,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
                 ))}
               </div>
 
-              {/* リンク (使用技術と同じカード内に配置してコンパクトに) */}
+              {(project.projectUrl || project.repositoryUrl) && (
               <div className="mt-10 pt-8 border-t border-zinc-800">
                 <h2 className="text-xl font-bold text-zinc-100 mb-6 flex items-center">
                   <span className="w-1.5 h-6 bg-amber-500 rounded-full mr-3" />
@@ -127,11 +135,9 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
                       <span className="ml-2 transform group-hover:translate-x-1 transition-transform">&rarr;</span>
                     </a>
                   )}
-                  {!project.projectUrl && !project.repositoryUrl && (
-                    <p className="text-zinc-500 italic">リンクはありません</p>
-                  )}
                 </div>
               </div>
+              )}
             </section>
 
           </aside>
