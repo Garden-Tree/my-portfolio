@@ -8,6 +8,9 @@ imageUrl: "/images/portfolio.png"
 imageFit: contain
 projectUrl: "https://gardentree-portfolio.vercel.app/"
 repositoryUrl: "https://github.com/Garden-Tree/my-portfolio"
+status: "公開中"
+period: "2025年5月〜"
+team: "個人開発"
 ---
 
 ## 概要

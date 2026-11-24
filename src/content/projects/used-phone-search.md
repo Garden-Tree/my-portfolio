@@ -1,5 +1,5 @@
 ---
-order: 10
+order: 3
 title: "中古スマホ一括検索 (powered by Gadelog)"
 slug: "used-phone-search"
 shortDescription: "大手18店の中古スマホ・タブレットなどの在庫を横断検索・比較できる、データ収集を自動化したWebアプリケーションです。"
@@ -8,6 +8,28 @@ imageUrl: "/images/used.png"
 imageFit: contain
 projectUrl: "https://used.gadelog.com"
 repositoryUrl: "https://github.com/Garden-Tree/used-phone-search"
+status: "公開中"
+period: "2026年5月〜"
+team: "個人開発"
+diagram:
+  caption: "データの取得から配信までの流れ（1日4回）"
+  steps:
+    - title: "レンタルサーバー"
+      items:
+        - "cronで楽天市場のデータを取得"
+    - title: "GitHub Actions"
+      via: "起動"
+      items:
+        - "各店のデータをNeonに取り込み"
+        - "サイトを書き出し"
+    - title: "Cloudflare Pages"
+      via: "配置"
+      items:
+        - "静的ファイルを配信"
+    - title: "ブラウザ"
+      via: "配信"
+      items:
+        - "在庫のJSONを絞り込んで表示"
 ---
 
 ## 概要
@@ -31,6 +53,8 @@ repositoryUrl: "https://github.com/Garden-Tree/used-phone-search"
 - インフラ / CI/CD: Cloudflare Pages, GitHub Actions, シン・レンタルサーバー
 
 レンタルサーバーのcronが楽天市場のデータを取得してGitHub Actionsを起動します。GitHub Actionsは各店のデータをNeonに取り込み、サイトを書き出してCloudflare Pagesに配置します。この更新を1日4回行っています。
+
+{{diagram}}
 
 ## 主な特徴と技術的な工夫
 - ユーザー視点でUIを設計し、「バッテリー最大容量順」でのソートやiOSサポート状況の可視化など、中古特有のリスクを軽減するUIを追求しました。

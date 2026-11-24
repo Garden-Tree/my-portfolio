@@ -1,11 +1,12 @@
 ---
-order: 9
+order: 10
 title: "航空機データフィード基盤の構築・運用"
 slug: "aircraft-ads-b-feeder"
 shortDescription: "SDR技術を用いて航空機からのADS-B信号を受信。デコードデータを世界的なトラッキングネットワークへフィードする基盤を構築しました。"
 technologies: ["Raspberry Pi", "SDR (Software Defined Radio)", "Ubuntu", "Linux", "dump1090"]
 imageUrl: "/images/raspberrypi.jpg"
 projectUrl: "https://gadelog.com/%e3%80%902024%e3%80%91ubuntu%e3%81%a7flightradar24%e3%81%ab%e3%83%95%e3%82%a3%e3%83%bc%e3%83%89%e3%81%99%e3%82%8b%e6%96%b9%e6%b3%95%ef%bc%88rtl-sdr%e4%bd%bf%e7%94%a8%ef%bc%89/"
+status: "運用中"
 ---
 
 ## 概要

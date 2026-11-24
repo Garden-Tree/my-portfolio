@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 4
 title: "生成AIを活用した燃費管理自動化Webアプリケーション"
 slug: "ai-fuel-efficiency-app"
 shortDescription: "Gemini APIのマルチモーダル解析を活用し、給油レシートやメーター画像から自動で燃費を記録・可視化するフルスタックWebアプリです。"
@@ -8,6 +8,9 @@ imageUrl: "/images/fuellens.png"
 imageFit: contain
 projectUrl: "https://fuel-lens.gadelog.com"
 repositoryUrl: "https://github.com/Garden-Tree/fuel-lens"
+status: "公開中"
+period: "2026年2月〜"
+team: "個人開発"
 ---
 
 ## 概要

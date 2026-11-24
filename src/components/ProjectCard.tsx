@@ -29,6 +29,17 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
       {/* プロジェクト情報 */}
       <div className="p-5 sm:p-6 flex-grow flex flex-col">
+        {(project.status || project.period || project.team) && (
+          <div className="mb-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-zinc-400">
+            {project.status && (
+              <span className="rounded-full border border-amber-500/40 px-2.5 py-0.5 text-amber-400">
+                {project.status}
+              </span>
+            )}
+            {project.team && <span>{project.team}</span>}
+            {project.period && <span>{project.period}</span>}
+          </div>
+        )}
         <h3 className="text-lg sm:text-xl font-semibold mb-2 text-zinc-100">
           {project.title}
         </h3>
